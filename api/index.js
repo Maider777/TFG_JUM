@@ -1,15 +1,17 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
   jwt = require("jsonwebtoken"),
-  app = express();
-var sql = require("mssql");
+  app = express(),
+  sql = require("mssql");
 
 const config = {
   llave: "miclaveultrasecreta123*",
   user: "sa",
   password: "Pa88word",
-  server: "185.60.40.210", //DESKTOP-TLGHJ6G
+  server: "185.60.40.210",
+  port:58015,
   database: "TFG_JUM",
+  trustServerCertificate: true,
 };
 
 app.set("llave", config.llave);
@@ -76,6 +78,32 @@ rutasProtegidas.use((req, res, next) => {
       mensaje: "Token no proveída.",
     });
   }
+});
+
+// PRUEBA; get todos los usuarios
+app.get("/usuarios", (req, res)=>{
+  sql.connect(config, function (err) {
+    console.log("POST SQL");
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+
+    // query to the database and get the records
+    request.query(
+      `select * from usuarios`,
+      function (err, recordset) {
+        const payload = {
+          check: true,
+        };
+        res.json({
+          mensaje: "Usuarios",
+          usuarios: recordset,
+        });
+
+        if (err) console.log(err);
+      }
+    );
+  });
 });
 
 app.get("/datos", rutasProtegidas, (req, res) => {

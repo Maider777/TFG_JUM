@@ -1,18 +1,19 @@
+/**
+ * Api base utilizada https://github.com/Deagle50/dam_proyecto_final/blob/master/CoctelpediaApiRest/app.js
+ * Api utilizada para JWT https://asfo.medium.com/autenticando-un-api-rest-con-nodejs-y-jwt-json-web-tokens-5f3674aba50e
+ */
+
 const express = require("express"),
   bodyParser = require("body-parser"),
   jwt = require("jsonwebtoken"),
   app = express(),
-  sql = require("mssql");
-
-const config = {
-  llave: "miclaveultrasecreta123*",
-  user: "sa",
-  password: "Pa88word",
-  server: "185.60.40.210",
-  port:58015,
-  database: "TFG_JUM",
-  trustServerCertificate: true,
-};
+  sql = require("mssql"),
+  config = require("./src/db/dbconfig"),
+  generos = require("./src/objetos/generos"),
+  preferencias = require("./src/objetos/preferencias"),
+  // grupos = require("./src/objetos/grupos"),
+  // grupos = require("./src/objetos/grupos"),
+  artistas = require("./src/objetos/artistas");
 
 app.set("llave", config.llave);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,48 +26,21 @@ app.get("/", function (req, res) {
   res.json({ message: "recurso de entrada" });
 });
 
-// 5
-app.post("/autenticar", (req, res) => {
-  console.log(req.body);
-  console.log("PRE SQL");
-  sql.connect(config, function (err) {
-    console.log("POST SQL");
-    if (err) console.log(err);
-    // create Request object
-    var request = new sql.Request();
-
-    // query to the database and get the records
-    request.query(
-      `select * from usuarios where usuario = ${req.body.usuario} && contrasena == ${req.body.contrasena}`,
-      function (err, recordset) {
-        //if (req.body.usuario === "asfo" && req.body.contrasena === "holamundo") {
-        const payload = {
-          check: true,
-        };
-        const token = jwt.sign(payload, app.get("llave"), {
-          expiresIn: 1440,
-        });
-        res.json({
-          mensaje: "Autenticación correcta",
-          token: token,
-        });
-        //} else {
-        res.json({ mensaje: "Usuario o contraseña incorrectos" });
-
-        if (err) console.log(err);
-      }
-    );
-  });
-});
-
-// 6
+/**
+ * Headers with authentication:
+ * Accept application/json
+ * Content-Type application/json
+ * access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjQ3MjUxMDA3LCJleHAiOjE2NDcyNTI0NDd9.1PU7Z3SbbTgstrF5k5lh0D4xzZAs2UkSpLu5dobhiN0
+ */
 const rutasProtegidas = express.Router();
+
 rutasProtegidas.use((req, res, next) => {
   const token = req.headers["access-token"];
 
   if (token) {
     jwt.verify(token, app.get("llave"), (err, decoded) => {
       if (err) {
+        res.status(401);
         return res.json({ mensaje: "Token inválida" });
       } else {
         req.decoded = decoded;
@@ -74,44 +48,122 @@ rutasProtegidas.use((req, res, next) => {
       }
     });
   } else {
+    res.status(401);
     res.send({
-      mensaje: "Token no proveída.",
+      mensaje: "No autorizado.",
     });
   }
 });
 
-// PRUEBA; get todos los usuarios
-app.get("/usuarios", (req, res)=>{
+/**
+ * LOGIN:
+ * Headers:
+ * Content-Type application/json
+ *
+ * x-www-form-urlencoded
+ * usuario: xxxx
+ * contrasena: xxxx
+ */
+app.post("/login", (req, res) => {
   sql.connect(config, function (err) {
-    console.log("POST SQL");
     if (err) console.log(err);
     // create Request object
     var request = new sql.Request();
-
-    // query to the database and get the records
     request.query(
-      `select * from usuarios`,
-      function (err, recordset) {
-        const payload = {
-          check: true,
-        };
-        res.json({
-          mensaje: "Usuarios",
-          usuarios: recordset,
-        });
-
-        if (err) console.log(err);
+      `SELECT * FROM usuarios where usuario = '${req.body.usuario}' AND contrasena = '${req.body.contrasena}'`,
+      function (err, response) {
+        if (err) {
+          res.send(err);
+          console.log(err);
+        }
+        if (response.recordset.length > 0) {
+          const payload = { check: true };
+          const token = jwt.sign(payload, app.get("llave"), {
+            expiresIn: 1440,
+          });
+          res.json({
+            mensaje: "Autenticación correcta",
+            token: token,
+          });
+        } else {
+          res.json({ mensaje: "Usuario o contraseña incorrectos" });
+        }
       }
     );
   });
 });
 
-app.get("/datos", rutasProtegidas, (req, res) => {
-  const datos = [
-    { id: 1, nombre: "Asfo" },
-    { id: 2, nombre: "Denisse" },
-    { id: 3, nombre: "Carlos" },
-  ];
+app.get("/artistas/", rutasProtegidas, (req, res) => {
+  artistas.obtenerArtistas().then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
 
-  res.json(datos);
+app.get("/artistas/:id", rutasProtegidas, (req, res) => {
+  artistas.obtenerArtista(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.post("/artistas", rutasProtegidas, (req, res) => {
+  artistas.crearArtista(req.body).then((data) => {
+    res.json(data);
+    /*if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);*/
+  });
+});
+
+app.get("/generos/", rutasProtegidas, (req, res) => {
+  generos.obtenerGeneros().then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.get("/generos/:id", rutasProtegidas, (req, res) => {
+  generos.obtenerGenero(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
+  preferencias.obtenerPreferencias(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.post("/preferencias", rutasProtegidas, (req, res) => {
+  preferencias.crearPreferencia(req.body.usuario, req.body.generoId).then((data) => {
+    res.json(data);
+    /*if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);*/
+  });
+});
+
+app.delete("/preferencias", rutasProtegidas, (req, res) => {
+  preferencias.eliminarPreferencia(req.body.usuario, req.body.generoId).then((data) => {
+    res.json(data);
+    /*if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);*/
+  });
 });

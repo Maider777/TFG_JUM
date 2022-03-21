@@ -1,7 +1,12 @@
 /**
  * Api base utilizada https://github.com/Deagle50/dam_proyecto_final/blob/master/CoctelpediaApiRest/app.js
  * Api utilizada para JWT https://asfo.medium.com/autenticando-un-api-rest-con-nodejs-y-jwt-json-web-tokens-5f3674aba50e
+ *
+ * Conexion string
+ * Server=185.60.40.210\\SQLEXPRESS,58015;User Id=sa;Password=Pa88word;
  */
+
+const { mostrarError, crearError, crearRespuesta } = require("./src/helpers/global");
 
 const express = require("express"),
   bodyParser = require("body-parser"),
@@ -79,7 +84,7 @@ app.post("/login", (req, res) => {
         if (response.recordset.length > 0) {
           const payload = { check: true };
           const token = jwt.sign(payload, app.get("llave"), {
-            expiresIn: 1440,
+            expiresIn: 86660,
           });
           res.json({
             mensaje: "Autenticación correcta",
@@ -93,6 +98,7 @@ app.post("/login", (req, res) => {
   });
 });
 
+// ARTISTAS
 app.get("/artistas/", rutasProtegidas, (req, res) => {
   artistas.obtenerArtistas().then((data) => {
     if (!data || data[0].length == 0) {
@@ -121,6 +127,7 @@ app.post("/artistas", rutasProtegidas, (req, res) => {
   });
 });
 
+// GÉNEROS
 app.get("/generos/", rutasProtegidas, (req, res) => {
   generos.obtenerGeneros().then((data) => {
     if (!data || data[0].length == 0) {
@@ -139,31 +146,61 @@ app.get("/generos/:id", rutasProtegidas, (req, res) => {
   });
 });
 
+// PREFERENCIAS
 app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
-  preferencias.obtenerPreferencias(req.params.id).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
+  preferencias
+    .obtenerPreferencias(req.params.id)
+    .then((data) => {
+      if (data instanceof Error) {
+        res.status(404).json(crearError(data));
+      }
+      res.json(data[0]);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
 });
 
 app.post("/preferencias", rutasProtegidas, (req, res) => {
-  preferencias.crearPreferencia(req.body.usuario, req.body.generoId).then((data) => {
-    res.json(data);
-    /*if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);*/
-  });
+  preferencias
+    .crearPreferencia(req.body.usuario, req.body.generoId)
+    .then((data) => {
+      if (data instanceof Error) {
+        res.status(401).json(crearError(error));
+      }
+      res.json(data).status(201);
+    })
+    .catch((error) => {
+      res.status(401).json(crearError(error));
+    });
 });
 
 app.delete("/preferencias", rutasProtegidas, (req, res) => {
-  preferencias.eliminarPreferencia(req.body.usuario, req.body.generoId).then((data) => {
-    res.json(data);
-    /*if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);*/
-  });
+  preferencias
+    .eliminarPreferencia(req.body.usuario, req.body.generoId)
+    .then((data) => {
+      if (data.rowsAffected == 0) {
+        res.status(401).json(crearError(new Error("La preferencia no existe")));
+      } else res.json(data, 204);
+    })
+    .catch((error) => {
+      res.status(401).json(crearError(error));
+    });
+});
+
+app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
+  preferencias
+    .eliminarPreferencias(req.params.id)
+    .then((data) => {
+      if (data.rowsAffected == 0) {
+        res.status(401).json(crearError(new Error("El usuario no tiene preferencias")));
+      } else {
+        let respuesta = crearRespuesta("Preferencias eliminadas correctamente", data);
+        console.log(respuesta);
+        res.status(204).json(respuesta);
+      }
+    })
+    .catch((error) => {
+      res.status(401).json(crearError(error));
+    });
 });

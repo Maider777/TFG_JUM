@@ -1,0 +1,56 @@
+[
+  {
+    "id": "UCUDVBtnOQi4c7E8jebpjc9Q",
+    "nombre": "Oasis",
+    "generos": "rock,pop",
+    "reputacion": 82
+  },
+  {
+    "id": "UCVm4YdI3hobkwsHTTOMVJKg",
+    "nombre": "AC/DC",
+    "generos": "rock,hard_rock",
+    "reputacion": 85
+  },
+  {
+    "id": "UC0zbzp6x7zR8u0LhanNWFyw",
+    "nombre": "IRON MAIDER",
+    "generos": "rock,heavy",
+    "reputacion": 74
+  },
+  {
+    "id": "UCHLSNz596sbRjYcyjIJc23g",
+    "nombre": "The Dead Weather",
+    "generos": "rock,alternative,indie",
+    "reputacion": 64
+  },
+  {
+    "id": "UCqHVC3OG_iub0imP6bzH5oA",
+    "nombre": "Velvet revolver",
+    "generos": "rock,hard_rock",
+    "reputacion": 72
+  },
+  {
+    "id": "UC1fab2nJ6Gk6G1drkzagxYg",
+    "nombre": "Camela",
+    "generos": "flamenco",
+    "reputacion": 85
+  },
+  {
+    "id": "UCs6GGpd9zvsYghuYe0VDFUQ",
+    "nombre": "Rammstein",
+    "generos": "heavy,hard_rock",
+    "reputacion": 80
+  },
+  {
+    "id": "UC4JNeITH4P7G51C1hJoG6vQ",
+    "nombre": "Green Day",
+    "generos": "rock,punk",
+    "reputacion": 83
+  },
+  {
+    "id": "UClYV6hHlupm_S_ObS1W-DYw",
+    "nombre": "The Weeknd",
+    "generos": "ryb,soul,alter,pop",
+    "reputacion": 80
+  }
+]

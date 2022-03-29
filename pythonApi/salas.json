@@ -1,0 +1,20 @@
+[
+  {
+    "id": "UCUDVBtsanOQi4c7E8jebpjc9Q",
+    "nombre": "Doka",
+    "direccion": "Erregezain",
+    "lat": 43,
+    "long": -2,
+    "municipio": "Donostia",
+    "relevancia": 82
+  },
+  {
+    "id": "UCUDVBtsanOQi4sac7E8jebpjc9Q",
+    "nombre": "Dabadaba",
+    "direccion": "Egia",
+    "lat": 43,
+    "long": -2,
+    "municipio": "Donostia",
+    "relevancia": 75
+  }
+]

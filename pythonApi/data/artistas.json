@@ -1,0 +1,260 @@
+[
+  {
+    "id": "UCUDVBtnOQi4c7E8jebpjc9Q",
+    "nombre": "Oasis",
+    "generos": "rock,pop",
+    "relevancia": 82
+  },
+  {
+    "id": "UCVm4YdI3hobkwsHTTOMVJKg",
+    "nombre": "AC/DC",
+    "generos": "rock,hardrock",
+    "relevancia": 85
+  },
+  {
+    "id": "UC0zbzp6x7zR8u0LhanNWFyw",
+    "nombre": "Iron Maiden",
+    "generos": "rock,heavy",
+    "relevancia": 74
+  },
+  {
+    "id": "UCHLSNz596sbRjYcyjIJc23g",
+    "nombre": "The Dead Weather",
+    "generos": "rock,alter,indie,garage",
+    "relevancia": 64
+  },
+  {
+    "id": "UCqHVC3OG_iub0imP6bzH5oA",
+    "nombre": "Velvet revolver",
+    "generos": "rock,hardrock,heavy",
+    "relevancia": 72
+  },
+  {
+    "id": "UC1fab2nJ6Gk6G1drkzagxYg",
+    "nombre": "Camela",
+    "generos": "flamenco,rumba,electro",
+    "relevancia": 85
+  },
+  {
+    "id": "UCs6GGpd9zvsYghuYe0VDFUQ",
+    "nombre": "Rammstein",
+    "generos": "heavy,hardrock",
+    "relevancia": 80
+  },
+  {
+    "id": "UC4JNeITH4P7G51C1hJoG6vQ",
+    "nombre": "Green Day",
+    "generos": "rock,punk",
+    "relevancia": 83
+  },
+  {
+    "id": "UClYV6hHlupm_S_ObS1W-DYw",
+    "nombre": "The Weeknd",
+    "generos": "ryb,soul,alter,pop",
+    "relevancia": 80
+  },
+  {
+    "id": "UCL0dlEc0rXV1CIawUKeme4g",
+    "nombre": "Kiss",
+    "generos": "rock,hardrock,heavy,glam",
+    "relevancia": 77
+  },
+  {
+    "id": "UCHjy3_HMS74O9bGejAHQ_WQ",
+    "nombre": "Ginebras",
+    "generos": "pop,rock,electropop,alter",
+    "relevancia": 70
+  },
+  {
+    "id": "UC8Yu1_yfN5qPh601Y4btsYw",
+    "nombre": "Arctic Monkeys",
+    "generos": "rock,pop,indie,alter,garage",
+    "relevancia": 82
+  },
+  {
+    "id": "UCGexNm_Kw4rdQjLxmpb2EKw",
+    "nombre": "Metallica",
+    "generos": "rock,garage,trashmetal,speedmetal",
+    "relevancia": 79
+  },
+  {
+    "id": "UCM4uR58LmX2iAPPW03g8Rig",
+    "nombre": "Sublime with Rome",
+    "generos": "reggaerock,reggae,ska,skapunk,alter",
+    "relevancia": 68
+  },
+  {
+    "id": "UCL5YsYJMZ-S5SU4_RQOWEPw",
+    "nombre": "Jack White",
+    "generos": "alter,garage,rock,bluesrock,folk,country",
+    "relevancia": 75
+  },
+  {
+    "id": "UC02hzkbqEtyTdwRUpNsUnlA",
+    "nombre": "Franz Ferdinand",
+    "generos": "indie,rock,dancerock",
+    "relevancia": 77
+  },
+  {
+    "id": "UCwgvi8NcdtSehmhS9seitQw",
+    "nombre": "Bear Ghost",
+    "generos": "rock,alter,indie,dancerock",
+    "relevancia": 62
+  },
+  {
+    "id": "UCVY2na9iDAShVRRKWYMC10g",
+    "nombre": "Leiva",
+    "generos": "poprock,pop,indie",
+    "relevancia": 70
+  },
+  {
+    "id": "UC0M1eZ4aR7AD30h4OiRfiFg",
+    "nombre": "The Orion Experience",
+    "generos": "indie,rock,dancerock,alter",
+    "relevancia": 65
+  },
+  {
+    "id": "UCpG8LTCBWUbEqfVy3ysifCQ",
+    "nombre": "Madness",
+    "generos": "ska,rock,skarock",
+    "relevancia": 74
+  },
+  {
+    "id": "UCNYhhkQqeFLUc-YEDcLpSYQ",
+    "nombre": "The Rolling Stones",
+    "generos": "rock,blues,hardrock",
+    "relevancia": 81
+  },
+  {
+    "id": "UCWh_Om_Kdm0Wpw_5GT9CS6Q",
+    "nombre": "The Interrupters",
+    "generos": "skarock,ska,skapunk,punkrock",
+    "relevancia": 79
+  },
+  {
+    "id": "UCWKArKXtmQ9FXIt9-EbwIoA",
+    "nombre": "Flogging Molly",
+    "generos": "punk,celta,folk,punkrock",
+    "relevancia": 68
+  },
+  {
+    "id": "UCCpbVGnLNOHE5wZlWVJ5ZBw",
+    "nombre": "Poor Man's Poison",
+    "generos": "rock,celta,folk",
+    "relevancia": 63
+  },
+  {
+    "id": "UCLl9fy5EJu7r5I-N5BeCVHw",
+    "nombre": "Eleisha Eagle",
+    "generos": "celta,folk,pop",
+    "relevancia": 60
+  },
+  {
+    "id": "UC6cULXiQIkvWqprazsS4ATA",
+    "nombre": "Vendetta",
+    "generos": "ska,skarock,reggae",
+    "relevancia": 69
+  },
+  {
+    "id": "UCjvo2GrWlQafjo1uHuPqiYw",
+    "nombre": "Extremoduro",
+    "generos": "hardrock,rock,progre",
+    "relevancia": 72
+  },
+  {
+    "id": "UCdO8EyeQt8SW9Mj3bnAbWrA",
+    "nombre": "Robe",
+    "generos": "rock,hardrock,sympho",
+    "relevancia": 76
+  },
+  {
+    "id": "UC9H68NExz_wycj9bdMB5kPg",
+    "nombre": "Pereza",
+    "generos": "alter,poprock,indie,pop",
+    "relevancia": 71
+  },
+  {
+    "id": "UCRbMcMQeSFVvsyEuOn7uAKQ",
+    "nombre": "Creedence Clearwater Revival",
+    "generos": "country,rock,bluesrock",
+    "relevancia": 74
+  },
+  {
+    "id": "UC3XcDooUnwiaiTPlICV6-ig",
+    "nombre": "Tina Turner",
+    "generos": "ryb,soul,pop",
+    "relevancia": 77
+  },
+  {
+    "id": "UCW02f_MjH8n1uMZhSds4mQQ",
+    "nombre": "Aretha Franklin",
+    "generos": "ryb,soul,gospel,jazz",
+    "relevancia": 77
+  },
+  {
+    "id": "UCR83RRXHzXrEQbu_ZQmPMSg",
+    "nombre": "Stevie Wonder",
+    "generos": "ryb,funk,jazz,progre",
+    "relevancia": 78
+  },
+  {
+    "id": "UCoIOOL7QKuBhQHVKL8y7BEQ",
+    "nombre": "Michael Jackson",
+    "generos": "pop,soul,funk,ryb,disco",
+    "relevancia": 80
+  },
+  {
+    "id": "UC2XdaAVUannpujzv32jcouQ",
+    "nombre": "The Beatles",
+    "generos": "rock,poprock",
+    "relevancia": 85
+  },
+  {
+    "id": "UC4VgwFaENFDrIjt8a4XjmaQ",
+    "nombre": "Boney M",
+    "generos": "ryb,disco,reggae",
+    "relevancia": 76
+  },
+  {
+    "id": "UCuubAXN9AYgtcmSrD0frggQ",
+    "nombre": "Abba",
+    "generos": "disco,rock",
+    "relevancia": 78
+  },
+  {
+    "id": "UC9I3hbllzsS4QZqNekPE76g",
+    "nombre": "Cyndi Lauper",
+    "generos": "pop,rock,funk,dance",
+    "relevancia": 71
+  },
+  {
+    "id": "UC4GVf3NpBzQiuNVf5EYsI5A",
+    "nombre": "Bee Gees",
+    "generos": "disco,electro",
+    "relevancia": 75
+  },
+  {
+    "id": "UCw8jIQzB2mdvvo_CVplLxug",
+    "nombre": "Muse",
+    "generos": "alter,rock,progre,hardrock,electropop",
+    "relevancia": 82
+  },
+  {
+    "id": "UCleK-EQfk3oOeg762pbjE4g",
+    "nombre": "Village People",
+    "generos": "disco,funk,soul,ryb",
+    "relevancia": 72
+  },
+  {
+    "id": "UCrPe3hLA51968GwxHSZ1llw",
+    "nombre": "Nirvana",
+    "generos": "garage,hardrock,rock,alter,punkrock",
+    "relevancia": 83
+  },
+  {
+    "id": "UCFldbdNiIgj0OTRZXOD0kvQ",
+    "nombre": "Susmara",
+    "generos": "rock,pop,poprock",
+    "relevancia": 65
+  }
+]

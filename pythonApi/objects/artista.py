@@ -1,11 +1,15 @@
 import json
 import pyodbc
-import sql
+import db.sql as sql
 from ytmusicapi import YTMusic
+import os
+
+# Python no soporta por defecto rutas relativas, con la librería OS se puede conseguir el efecto
+directorioActual = os.path.dirname(__file__)
+rutaArtistas = os.path.join(directorioActual, '../data/artistas.json')
+
 ytmusic = YTMusic('headers_auth.json')
 
-connection = pyodbc.connect('DRIVER={SQL Server};SERVER=185.60.40.210,58015;DATABASE=TFG_JUM;UID=sa;PWD=Pa88word;')
-cursor = connection.cursor()
 class Artista(object):
     id = ""
     nombre = ""
@@ -27,11 +31,12 @@ class Artista(object):
 
 def crear_artistas():
     # Opening JSON file
-    jsonController = open('artists.json')
+    jsonController = open(rutaArtistas)
     
     # returns JSON object as
     # a dictionary
     data = json.load(jsonController)
+    print(len(data))
     #YTMUSIC READ INFO
     for info in data:
         artista_id = info["id"]

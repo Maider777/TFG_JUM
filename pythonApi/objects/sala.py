@@ -1,12 +1,14 @@
 import json
 import pyodbc
-import sql
+import db.sql as sql
+import os
 from ytmusicapi import YTMusic
 ytmusic = YTMusic('headers_auth.json')
 
-# FALTA EL NOMBRE DE LA SALA; CAZURRO
-connection = pyodbc.connect('DRIVER={SQL Server};SERVER=185.60.40.210,58015;DATABASE=TFG_JUM;UID=sa;PWD=Pa88word;')
-cursor = connection.cursor()
+# Python no soporta por defecto rutas relativas, con la librería OS se puede conseguir el efecto
+directorioActual = os.path.dirname(__file__)
+rutaSalas = os.path.join(directorioActual, '../data/salas.json')
+
 class Sala(object):
     id = ""
     nombre = ""
@@ -30,11 +32,12 @@ class Sala(object):
 
 def crear_salas():
     # Opening JSON file
-    jsonController = open('salas.json')
+    jsonController = open(rutaSalas)
     
     # returns JSON object as
     # a dictionary
     data = json.load(jsonController)
+    
     #YTMUSIC READ INFO
     for info in data:
         sala = Sala(info["id"], info["nombre"], info["direccion"], info["lat"], info["long"], info["municipio"], info["relevancia"])

@@ -13,26 +13,26 @@
   },
   {
     "id": "UC0zbzp6x7zR8u0LhanNWFyw",
-    "nombre": "IRON MAIDER",
+    "nombre": "Iron Maiden",
     "generos": "rock,heavy",
     "relevancia": 74
   },
   {
     "id": "UCHLSNz596sbRjYcyjIJc23g",
     "nombre": "The Dead Weather",
-    "generos": "rock,alternative,indie",
+    "generos": "rock,alter,indie,garage",
     "relevancia": 64
   },
   {
     "id": "UCqHVC3OG_iub0imP6bzH5oA",
     "nombre": "Velvet revolver",
-    "generos": "rock,hard_rock",
+    "generos": "rock,hard_rock,heavy",
     "relevancia": 72
   },
   {
     "id": "UC1fab2nJ6Gk6G1drkzagxYg",
     "nombre": "Camela",
-    "generos": "flamenco",
+    "generos": "flamenco,rumba,electro",
     "relevancia": 85
   },
   {
@@ -52,5 +52,29 @@
     "nombre": "The Weeknd",
     "generos": "ryb,soul,alter,pop",
     "relevancia": 80
+  },
+  {
+    "id": "UCL0dlEc0rXV1CIawUKeme4g",
+    "nombre": "Kiss",
+    "generos": "rock,hard_rock,heavy,glam",
+    "relevancia": 77
+  },
+  {
+    "id": "UCHjy3_HMS74O9bGejAHQ_WQ",
+    "nombre": "Ginebras",
+    "generos": "pop,rock,electropop,alter",
+    "relevancia": 70
+  },
+  {
+    "id": "UC8Yu1_yfN5qPh601Y4btsYw",
+    "nombre": "Arctic Monkeys",
+    "generos": "rock,pop,indie,alter,garage",
+    "relevancia": 82
+  },
+  {
+    "id": "UCGexNm_Kw4rdQjLxmpb2EKw",
+    "nombre": "Metallica",
+    "generos": "rock,garage,trashmetal,speedmetal",
+    "relevancia": 79
   }
 ]

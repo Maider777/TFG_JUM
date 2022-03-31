@@ -402,5 +402,203 @@
     "nombre": "Isabel Pantoja",
     "generos": "flamenco,rumba",
     "relevancia": 79
+  },  
+  {
+    "id": "UCpbcHK0FgF3p9XxgO7mc0RA",
+    "nombre": "Nena Daconte",
+    "generos": "pop,poprock",
+    "relevancia": 74
+  },
+  {
+    "id": "UCxG1idP3Yxc_uFPji1ixUkA",
+    "nombre": "Cariño",
+    "generos": "pop,poprock",
+    "relevancia": 72
+  },  
+  {
+    "id": "UCoymDyyaLqjMbAckW2G07qw",
+    "nombre": "David Bustamante",
+    "generos": "latino,pop",
+    "relevancia": 76
+  },
+  {
+    "id": "UCDSgqSl9etow7w1II4oiteg",
+    "nombre": "Maldita Nerea",
+    "generos": "pop,poprock",
+    "relevancia": 73
+  },
+  {
+    "id": "UCaZ0kbsI5Lf2PjUXx7Nlb0Q",
+    "nombre": "Radiocaster",
+    "generos": "rock,country",
+    "relevancia": 64
+  },  
+  {
+    "id": "UCI1tnOMUhNh2QiHTpMrPDbw",
+    "nombre": "Pearl Jam",
+    "generos": "alter,rock,hardrock",
+    "relevancia": 75
+  },  
+  {
+    "id": "UC7ZZO3SqCoPyg2cB4s3rIgw",
+    "nombre": "Loquillo",
+    "generos": "rock",
+    "relevancia": 73
+  },  
+  {
+    "id": "UCfTh3k6OyoUutinINQJiIHA",
+    "nombre": "Soundgarden",
+    "generos": "alter,sympho,rock,hardrock",
+    "relevancia": 72
+  },  
+  {
+    "id": "UCu6ct4LWh-sMXxQpreWDY_g",
+    "nombre": "Amaral",
+    "generos": "pop,poprock",
+    "relevancia": 76
+  },  
+  {
+    "id": "UCfp-OYNmi-Bzt9Wsp2m5kTw",
+    "nombre": "La Oreja de Van Gogh",
+    "generos": "pop,poprock",
+    "relevancia": 73
+  },  
+  {
+    "id": "UCyZgGJiy9vum1xD7hXWG_rA",
+    "nombre": "Morat",
+    "generos": "pop,poprock",
+    "relevancia": 73
+  },
+  {
+    "id": "UCBadSYLD8xpP0CVWh8qv9kQ",
+    "nombre": "Ska-P",
+    "generos": "ska,skapunk,skarock",
+    "relevancia": 77
+  },
+  {
+    "id": "UCp7lzL1PuqTCx_QstPXpP5g",
+    "nombre": "Kortatu",
+    "generos": "ska,skapunk,skarock",
+    "relevancia": 75
+  },
+  {
+    "id": "UCrSorX845CEWXzU4Z7BojjA",
+    "nombre": "Red Hot Chilli Peppers",
+    "generos": "funk,rock,alter",
+    "relevancia": 79
+  },
+  {
+    "id": "UCEPMVbUzImPl4p8k4LkGevA",
+    "nombre": "Queen",
+    "generos": "rock,glam,progre",
+    "relevancia": 85
+  },
+  {
+    "id": "UCA2VqriDlT-sKO2j2-Phyzg",
+    "nombre": "Raphael",
+    "generos": "pop,latino",
+    "relevancia": 85
+  },
+  {
+    "id": "UCZSFp05FpTmXx-OTS5U6P4w",
+    "nombre": "La Fuga",
+    "generos": "rock,poprock",
+    "relevancia": 75
+  },
+  {
+    "id": "UCGLfQjo6RhRzBreWjl8OHXg",
+    "nombre": "Rulo y la Contrabanda",
+    "generos": "rock,poprock",
+    "relevancia": 72
+  },
+  {
+    "id": "UCelRJFFYY9YFd-q8UQIl1HA",
+    "nombre": "Luca Grassi",
+    "generos": "rumba,pop,poprock",
+    "relevancia": 65
+  },
+  {
+    "id": "UCD81WVra22RqlYsk0FB0d3Q",
+    "nombre": "Dos",
+    "generos": "jazz,soul,blues,rock",
+    "relevancia": 68
+  },
+  {
+    "id": "UCg4nBubbzhYXjudOxPi9V7w",
+    "nombre": "Rage Against the Machine",
+    "generos": "rock,heavy,hardrock,alter",
+    "relevancia": 78
+  },
+  {
+    "id": "UCwDw2KaS8jRUxAPScL2U8og",
+    "nombre": "Foo Fighters",
+    "generos": "alter,hardrock,rock,poprock",
+    "relevancia": 81
+  },
+  {
+    "id": "UCXFORacilzgMtuCbUFkzBww",
+    "nombre": "Big Bad Vodoo Daddy",
+    "generos": "blues,folk,celta,rock",
+    "relevancia": 70
+  },
+  {
+    "id": "UC8-nGfNh0TdxpU29qwYTreg",
+    "nombre": "Will Wood",
+    "generos": "folk,blues,rock,jazz",
+    "relevancia": 69
+  },
+  {
+    "id": "UCCmr_pJ7az1JfWUiujsiHWg",
+    "nombre": "Talking Heads",
+    "generos": "rock,punk,dancerock",
+    "relevancia": 71
+  },
+  {
+    "id": "UC7JlXAEJPpTUT6x1_E7ijrg",
+    "nombre": "Saint Motel",
+    "generos": "indie,rock,funk,pop",
+    "relevancia": 73
+  },
+  {
+    "id": "UCOO-OZf4Nk2JX1JUApev9fQ",
+    "nombre": "I Don't Know How But They Found Me",
+    "generos": "pop,rock,poprock",
+    "relevancia": 74
+  },
+  {
+    "id": "UCTz1LbApOPI1byhP61ktXdw",
+    "nombre": "Interpol",
+    "generos": "pop,poprock,punk,punkrock",
+    "relevancia": 72
+  },
+  {
+    "id": "UCF6I8FH_f6NBEsngIfkZY6g",
+    "nombre": "Blondie",
+    "generos": "rock,poprock,disco,funk,reggae",
+    "relevancia": 79
+  },
+  {
+    "id": "UCzSg1Q-AlfSGiJPVswx3k8Q",
+    "nombre": "Love of Lesbian",
+    "generos": "rock,indie,poprock",
+    "relevancia": 76
+  },
+  {
+    "id": "UCOGpGpFiyDykGhvuZdQcRrg",
+    "nombre": "Zetak",
+    "generos": "electro,pop",
+    "relevancia": 68
+  },
+  {
+    "id": "UCBfv87kvVXyNi88URZ1zvCA",
+    "nombre": "Bob Marley",
+    "generos": "reggae,ska,folk",
+    "relevancia": 82
+  },
+  {
+    "id": "UCimf1nPr_Wc0ddnienWKGdg",
+    "nombre": "The Jackson 5",
+    "generos": "pop,ryb,funk,soul,disco",
+    "relevancia": 77
   },
 ]

@@ -337,4 +337,70 @@
     "generos": "disco,ryb,funk,jazz",
     "relevancia": 76
   },
+  {
+    "id": "UCou8wnepOZWdGfSmQtTwrpA",
+    "nombre": "Joaquín Sabina",
+    "generos": "rock",
+    "relevancia": 76
+  },
+  {
+    "id": "UCBTyLjhj5N6EDLSdoCOrDWw",
+    "nombre": "Jarabe de Palo",
+    "generos": "rock,poprock,rumba",
+    "relevancia": 78
+  },
+  {
+    "id": "UCfr2TjgbUQ33G-KAed4NXfQ",
+    "nombre": "Pignoise",
+    "generos": "pop,poprock",
+    "relevancia": 69
+  },
+  {
+    "id": "UC04kdvWNo4IjD_9tyWxu9ng",
+    "nombre": "David Otero",
+    "generos": "pop,poprock",
+    "relevancia": 70
+  },
+  {
+    "id": "UCRn6bfeGI1jrY7Mek3GJ_xA",
+    "nombre": "David Bisbal",
+    "generos": "pop,poprock,latino",
+    "relevancia": 83
+  },
+  {
+    "id": "UCjy9xGX-bGJJ8SBzrdxtaiw",
+    "nombre": "Sidecars",
+    "generos": "pop,poprock",
+    "relevancia": 71
+  },
+  {
+    "id": "UCByfS45NiXJXjpqAbHrHAiA",
+    "nombre": "Efecto Pasillo",
+    "generos": "alter,poprock,pop",
+    "relevancia": 76
+  },
+  {
+    "id": "UCJ_erOhxsuzi3KYLngXMeJw",
+    "nombre": "Miki Nuñez",
+    "generos": "rumba,folk,pop",
+    "relevancia": 73
+  },
+  {
+    "id": "UCWnzc7JBQgwRNJr8Grnaeow",
+    "nombre": "Dvicio",
+    "generos": "latino,pop",
+    "relevancia": 77
+  },
+  {
+    "id": "UCeYz6rzUGhVwqxRM37FUo8w",
+    "nombre": "Rosalía",
+    "generos": "flamenco,pop,latino",
+    "relevancia": 80
+  },
+  {
+    "id": "UCQDnutA2rFmpcJR5gKjrg5A",
+    "nombre": "Isabel Pantoja",
+    "generos": "flamenco,rumba",
+    "relevancia": 79
+  },
 ]

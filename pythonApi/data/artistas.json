@@ -256,5 +256,85 @@
     "nombre": "Susmara",
     "generos": "rock,pop,poprock",
     "relevancia": 65
-  }
+  },
+  {
+    "id": "UCkyzcFsGWVYSUGaR7YB9OYQ",
+    "nombre": "Aitana",
+    "generos": "pop,poprock",
+    "relevancia": 77
+  },
+  {
+    "id": "UCd25mqkTos06xFf1RP9qFJA",
+    "nombre": "Estopa",
+    "generos": "rumba,pop,poprock",
+    "relevancia": 75
+  },
+  {
+    "id": "UC90CyNekwM3GmRJbAfHfoeQ",
+    "nombre": "Macaco",
+    "generos": "electro,latino,rumba",
+    "relevancia": 70
+  },
+  {
+    "id": "UCBDXpukZYpWw54QCbEGdsZw",
+    "nombre": "Tini",
+    "generos": "pop,latino",
+    "relevancia": 68
+  },
+  {
+    "id": "UCXP8o4Xcws36pgpFNlGGBeg",
+    "nombre": "Sebastián Yatra",
+    "generos": "pop,latino",
+    "relevancia": 72
+  },
+  
+  {
+    "id": "UCLUi5qNAy5THSAI4neRPkSQ",
+    "nombre": "Andy y Lucas",
+    "generos": "pop,rumba,flamenco",
+    "relevancia": 73
+  },  
+  {
+    "id": "UCl4jq8XKq5X0ZL5p_xVMmZA",
+    "nombre": "Melendi",
+    "generos": "pop,poprock",
+    "relevancia": 76
+  },
+  
+  {
+    "id": "UCRF6Gg7Qi4eJyzXDjR9SLCw",
+    "nombre": "Pablo Alborán",
+    "generos": "pop",
+    "relevancia": 79
+  },
+  {
+    "id": "UC_-gym2WkuAsVRoadzCUD_g",
+    "nombre": "El Canto del Loco",
+    "generos": "poprock,pop",
+    "relevancia": 77
+  },
+  {
+    "id": "UCCvK4hYSFyqsUv0yvF3ayDA",
+    "nombre": "Dani Martín",
+    "generos": "poprock,pop",
+    "relevancia": 79
+  },
+  {
+    "id": "UCr9E0R2qTXZ9V9e_9OgdF3g",
+    "nombre": "Marea",
+    "generos": "rock,hardrock",
+    "relevancia": 70
+  },
+  {
+    "id": "UCkyzcFsGWVYSUGaR7YB9OYQ",
+    "nombre": "Mago de Oz",
+    "generos": "celta,folk,rock,sympho",
+    "relevancia": 75
+  },
+  {
+    "id": "UCdyqvgHHq9NEEfV20lO61jQ",
+    "nombre": "Earth, Wind and Fire",
+    "generos": "disco,ryb,funk,jazz",
+    "relevancia": 76
+  },
 ]

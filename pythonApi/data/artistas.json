@@ -287,20 +287,20 @@
     "generos": "pop,latino",
     "relevancia": 72
   },
-  
+
   {
     "id": "UCLUi5qNAy5THSAI4neRPkSQ",
     "nombre": "Andy y Lucas",
     "generos": "pop,rumba,flamenco",
     "relevancia": 73
-  },  
+  },
   {
     "id": "UCl4jq8XKq5X0ZL5p_xVMmZA",
     "nombre": "Melendi",
     "generos": "pop,poprock",
     "relevancia": 76
   },
-  
+
   {
     "id": "UCRF6Gg7Qi4eJyzXDjR9SLCw",
     "nombre": "Pablo Alborán",
@@ -402,7 +402,7 @@
     "nombre": "Isabel Pantoja",
     "generos": "flamenco,rumba",
     "relevancia": 79
-  },  
+  },
   {
     "id": "UCpbcHK0FgF3p9XxgO7mc0RA",
     "nombre": "Nena Daconte",
@@ -414,7 +414,7 @@
     "nombre": "Cariño",
     "generos": "pop,poprock",
     "relevancia": 72
-  },  
+  },
   {
     "id": "UCoymDyyaLqjMbAckW2G07qw",
     "nombre": "David Bustamante",
@@ -432,37 +432,37 @@
     "nombre": "Radiocaster",
     "generos": "rock,country",
     "relevancia": 64
-  },  
+  },
   {
     "id": "UCI1tnOMUhNh2QiHTpMrPDbw",
     "nombre": "Pearl Jam",
     "generos": "alter,rock,hardrock",
     "relevancia": 75
-  },  
+  },
   {
     "id": "UC7ZZO3SqCoPyg2cB4s3rIgw",
     "nombre": "Loquillo",
     "generos": "rock",
     "relevancia": 73
-  },  
+  },
   {
     "id": "UCfTh3k6OyoUutinINQJiIHA",
     "nombre": "Soundgarden",
     "generos": "alter,sympho,rock,hardrock",
     "relevancia": 72
-  },  
+  },
   {
     "id": "UCu6ct4LWh-sMXxQpreWDY_g",
     "nombre": "Amaral",
     "generos": "pop,poprock",
     "relevancia": 76
-  },  
+  },
   {
     "id": "UCfp-OYNmi-Bzt9Wsp2m5kTw",
     "nombre": "La Oreja de Van Gogh",
     "generos": "pop,poprock",
     "relevancia": 73
-  },  
+  },
   {
     "id": "UCyZgGJiy9vum1xD7hXWG_rA",
     "nombre": "Morat",
@@ -496,7 +496,7 @@
   {
     "id": "UCA2VqriDlT-sKO2j2-Phyzg",
     "nombre": "Raphael",
-    "generos": "pop,latino",
+    "generos": "pop,poprock",
     "relevancia": 85
   },
   {
@@ -512,16 +512,16 @@
     "relevancia": 72
   },
   {
-    "id": "UCelRJFFYY9YFd-q8UQIl1HA",
-    "nombre": "Luca Grassi",
-    "generos": "rumba,pop,poprock",
-    "relevancia": 65
+    "id": "UCRw0x9_EfawqmgDI2IgQLLg",
+    "nombre": "Adele",
+    "generos": "soul,pop",
+    "relevancia": 79
   },
   {
-    "id": "UCD81WVra22RqlYsk0FB0d3Q",
-    "nombre": "Dos",
-    "generos": "jazz,soul,blues,rock",
-    "relevancia": 68
+    "id": "UCg3_SmLpXosGWKOEBhaD_tw",
+    "nombre": "OBK",
+    "generos": "electro,pop,electropop",
+    "relevancia": 69
   },
   {
     "id": "UCg4nBubbzhYXjudOxPi9V7w",
@@ -601,4 +601,16 @@
     "generos": "pop,ryb,funk,soul,disco",
     "relevancia": 77
   },
+  {
+    "id": "UCNxZqWO9mhIqniH6W8Vcp7Q",
+    "nombre": "Luke Bryan",
+    "generos": "country,rock,folk",
+    "relevancia": 79
+  },
+  {
+    "id": "UCNEOs26SV8KlC9XxqdR7jew",
+    "nombre": "Rise Against",
+    "generos": "hardrock,punkrock,rock",
+    "relevancia": 77
+  }
 ]

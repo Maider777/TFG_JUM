@@ -14,15 +14,18 @@ const express = require("express"),
   app = express(),
   sql = require("mssql"),
   config = require("./src/db/dbconfig"),
-  generos = require("./src/objetos/generos"),
-  preferencias = require("./src/objetos/preferencias"),
+  cors = require("cors");
+
+(generos = require("./src/objetos/generos")),
+  (preferencias = require("./src/objetos/preferencias")),
   // grupos = require("./src/objetos/grupos"),
   // grupos = require("./src/objetos/grupos"),
-  artistas = require("./src/objetos/artistas");
+  (artistas = require("./src/objetos/artistas"));
 
 app.set("llave", config.llave);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.listen(3000, () => {
   console.log("Servidor iniciado en el puerto 3000");

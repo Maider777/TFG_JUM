@@ -27,8 +27,6 @@ class Artista(object):
         self.generos = generos
         self.relevancia = relevancia
 
-
-
 def crear_artistas():
     # Opening JSON file
     jsonController = open(rutaArtistas)

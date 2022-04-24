@@ -612,5 +612,17 @@
     "nombre": "Rise Against",
     "generos": "hardrock,punkrock,rock",
     "relevancia": 77
+  },
+  {
+    "id": "UCLuHOvsT_LbOGVjqmXudvBg",
+    "nombre": "C Tangana",
+    "generos": "flamenco,rumba",
+    "relevancia": 77
+  },
+  {
+    "id": "UCARH92723jiDHo8olBM7K7Q",
+    "nombre": "La Topadora",
+    "generos": "ska,skarock",
+    "relevancia": 70
   }
 ]

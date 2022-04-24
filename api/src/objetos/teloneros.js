@@ -2,21 +2,22 @@ const config = require("../db/dbconfig"),
   db = require("../db/constantes"),
   sql = require("mssql");
 
-async function obtenerGeneros() {
+async function obtenerTeloneros() {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_GENEROS} FROM ${db.TABLAS.GENEROS}`);
+    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_TELONEROS} FROM ${db.TABLAS.TELONEROS}`);
     return grupos.recordsets;
   } catch (error) {
     return error;
   }
 }
 
-async function obtenerGenero(id) {
-  console.log("ID: " + id);
+async function obtenerTelonero(id) {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_GENEROS} FROM ${db.TABLAS.GENEROS} WHERE id = '${id}'`);
+    let grupos = await pool
+      .request()
+      .query(`SELECT ${db.CAMPOS_TELONEROS} FROM ${db.TABLAS.TELONEROS} WHERE id = '${id}'`);
     return grupos.recordsets;
   } catch (error) {
     return error;
@@ -24,6 +25,6 @@ async function obtenerGenero(id) {
 }
 
 module.exports = {
-  obtenerGeneros,
-  obtenerGenero,
+  obtenerTeloneros,
+  obtenerTelonero,
 };

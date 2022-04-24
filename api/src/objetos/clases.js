@@ -1,4 +1,4 @@
-class Grupo {
+class Artista {
   constructor(id, nombre, acronimo, imagen_url, descripcion, generoId, relevancia) {
     this.id = id;
     this.nombre = nombre;
@@ -10,4 +10,4 @@ class Grupo {
   }
 }
 
-module.exports = { Grupo };
+module.exports = { Artista };

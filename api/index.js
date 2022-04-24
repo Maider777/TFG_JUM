@@ -14,13 +14,14 @@ const express = require("express"),
   app = express(),
   sql = require("mssql"),
   config = require("./src/db/dbconfig"),
-  cors = require("cors");
-
-(generos = require("./src/objetos/generos")),
-  (preferencias = require("./src/objetos/preferencias")),
-  // grupos = require("./src/objetos/grupos"),
-  // grupos = require("./src/objetos/grupos"),
-  (artistas = require("./src/objetos/artistas"));
+  cors = require("cors"),
+  artistas = require("./src/objetos/artistas"),
+  conciertos = require("./src/objetos/conciertos"),
+  generos = require("./src/objetos/generos"),
+  preferencias = require("./src/objetos/preferencias"),
+  salas = require("./src/objetos/salas"),
+  teloneros = require("./src/objetos/teloneros"),
+  usuarios = require("./src/objetos/usuarios");
 
 app.set("llave", config.llave);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -130,6 +131,34 @@ app.post("/artistas", rutasProtegidas, (req, res) => {
   });
 });
 
+// CONCIERTOS
+app.get("/conciertos/", rutasProtegidas, (req, res) => {
+  conciertos.obtenerConciertos.then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.get("/conciertos/:id", rutasProtegidas, (req, res) => {
+  conciertos.obtenerConcierto(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.get("/conciertosArtista/:id", rutasProtegidas, (req, res) => {
+  conciertos.obtenerConciertosArtista(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
 // GÉNEROS
 app.get("/generos/", rutasProtegidas, (req, res) => {
   generos.obtenerGeneros().then((data) => {
@@ -206,4 +235,42 @@ app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
     .catch((error) => {
       res.status(401).json(crearError(error));
     });
+});
+
+// PREFERENCIAS
+
+app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
+  preferencias.obtenerPreferencias(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.post("/preferencias/:id", rutasProtegidas, (req, res) => {
+  preferencias.crearPreferencia(req.params.id, req.params.generoId).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
+  preferencias.eliminarPreferencia(req.params.id, req.params.generoId).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
+});
+
+app.delete("/preferenciasUsuario/:id", rutasProtegidas, (req, res) => {
+  preferencias.eliminarPreferencias(req.params.id).then((data) => {
+    if (!data || data[0].length == 0) {
+      res.status(404);
+    }
+    res.json(data[0]);
+  });
 });

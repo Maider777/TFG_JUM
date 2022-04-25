@@ -33,9 +33,6 @@ function descargarImagen(uri, filename, callback) {
     console.log("La imagen NO existe");
     //file exists
     request.head(uri, function (err, res, body) {
-      console.log("content-type:", res.headers["content-type"]);
-      console.log("content-length:", res.headers["content-length"]);
-
       request(uri).pipe(fs.createWriteStream(filename)).on("close", callback);
     });
     return;

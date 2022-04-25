@@ -7,9 +7,7 @@ async function obtenerPreferencias(usuario) {
   console.log("ID: " + usuario);
   try {
     let pool = await sql.connect(config);
-    let resp = await pool
-      .request()
-      .query(`SELECT ${db.CAMPOS_PREFERENCIAS} FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}'`);
+    let resp = await pool.request().query(`SELECT ${db.CAMPOS_PREFERENCIAS} FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}'`);
     if (resp.recordsets[0].length == 0) return new Error("El usuario no existe o no tiene preferencias");
     return resp.recordsets;
   } catch (error) {
@@ -22,9 +20,7 @@ async function preferenciaExiste(usuario, genero) {
     let pool = await sql.connect(config);
     let resp = await pool
       .request()
-      .query(
-        `SELECT ${db.CAMPOS_PREFERENCIAS} FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND generoId = '${genero}'`
-      )
+      .query(`SELECT ${db.CAMPOS_PREFERENCIAS} FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND generoId = '${genero}'`)
       .catch((error) => {
         throw error;
       });
@@ -54,9 +50,7 @@ async function crearPreferencia(usuario, genero) {
 async function eliminarPreferencia(usuario, genero) {
   try {
     let pool = await sql.connect(config);
-    let resp = await pool
-      .request()
-      .query(`DELETE FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND generoId = '${genero}'`);
+    let resp = await pool.request().query(`DELETE FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND generoId = '${genero}'`);
     return resp;
   } catch (error) {
     return error;

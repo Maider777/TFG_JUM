@@ -15,18 +15,25 @@ const express = require("express"),
   sql = require("mssql"),
   config = require("./src/db/dbconfig"),
   cors = require("cors"),
+  // http = require("http"),
+  // fs = require("fs"),
+  // path = require("path"),
+  // url = require("url"),
+  fs = require("fs"),
   artistas = require("./src/objetos/artistas"),
   conciertos = require("./src/objetos/conciertos"),
   generos = require("./src/objetos/generos"),
   preferencias = require("./src/objetos/preferencias"),
   salas = require("./src/objetos/salas"),
-  teloneros = require("./src/objetos/teloneros"),
-  usuarios = require("./src/objetos/usuarios");
+  teloneros = require("./src/objetos/teloneros");
 
 app.set("llave", config.llave);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
 
 app.listen(3000, () => {
   console.log("Servidor iniciado en el puerto 3000");
@@ -34,6 +41,13 @@ app.listen(3000, () => {
 app.get("/", function (req, res) {
   res.json({ message: "recurso de entrada" });
 });
+
+var dir = "./public/images";
+
+if (!fs.existsSync(dir)) {
+  console.log("NO EXISTE, CREADO");
+  fs.mkdirSync(dir, { recursive: true });
+}
 
 /**
  * Headers with authentication:
@@ -104,21 +118,31 @@ app.post("/login", (req, res) => {
 
 // ARTISTAS
 app.get("/artistas/", rutasProtegidas, (req, res) => {
-  artistas.obtenerArtistas().then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
+  artistas
+    .obtenerArtistas()
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.status(404);
+      }
+      res.json(data[0]);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
 
 app.get("/artistas/:id", rutasProtegidas, (req, res) => {
-  artistas.obtenerArtista(req.params.id).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
+  artistas
+    .obtenerArtista(req.params.id)
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.status(404);
+      }
+      res.json(data[0]);
+    })
+    .catch((error) => {
+      console.log("ERROR: " + error);
+    });
 });
 
 app.post("/artistas", rutasProtegidas, (req, res) => {
@@ -181,7 +205,7 @@ app.get("/generos/:id", rutasProtegidas, (req, res) => {
 // PREFERENCIAS
 app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
   preferencias
-    .obtenerPreferencias(req.params.id)
+    .obtenerPreferencias(req.params.usuario)
     .then((data) => {
       if (data instanceof Error) {
         res.status(404).json(crearError(data));
@@ -195,7 +219,7 @@ app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
 
 app.post("/preferencias", rutasProtegidas, (req, res) => {
   preferencias
-    .crearPreferencia(req.body.usuario, req.body.generoId)
+    .crearPreferencia(req.body.usuario, req.body.artistaId)
     .then((data) => {
       if (data instanceof Error) {
         res.status(401).json(crearError(error));
@@ -237,40 +261,17 @@ app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
     });
 });
 
-// PREFERENCIAS
-
-app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
-  preferencias.obtenerPreferencias(req.params.id).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
-});
-
-app.post("/preferencias/:id", rutasProtegidas, (req, res) => {
-  preferencias.crearPreferencia(req.params.id, req.params.generoId).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
-});
-
-app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
-  preferencias.eliminarPreferencia(req.params.id, req.params.generoId).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
-});
-
-app.delete("/preferenciasUsuario/:id", rutasProtegidas, (req, res) => {
-  preferencias.eliminarPreferencias(req.params.id).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
+// SALAS
+app.get("/salas/:id", rutasProtegidas, (req, res) => {
+  salas
+    .obtenerSala(req.params.id)
+    .then((data) => {
+      if (data instanceof Error) {
+        res.status(404).json(crearError(data));
+      }
+      res.json(data[0]);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
 });

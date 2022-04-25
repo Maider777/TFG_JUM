@@ -1,20 +1,200 @@
 [
   {
-    "id": "UCUDVBtsanOQi4c7E8jebpjc9Q",
+    "id": "doka_donostia",
     "nombre": "Doka",
-    "direccion": "Erregezain",
-    "lat": 43,
-    "long": -2,
+    "direccion": "Erregezaintza Kalea, 20, 20008 Donostia, Gipuzkoa",
+    "lat": 43.3126107,
+    "long": -2.003676,
     "municipio": "Donostia",
-    "relevancia": 82
+    "relevancia": 67
   },
   {
-    "id": "UCUDVBtsanOQi4sac7E8jebpjc9Q",
+    "id": "dabadaba_donostia",
     "nombre": "Dabadaba",
-    "direccion": "Egia",
-    "lat": 43,
-    "long": -2,
+    "direccion": "Mundaitz Kalea, 8, 20012 Donostia, Gipuzkoa",
+    "lat": 43.3155595,
+    "long": -1.9785776,
+    "municipio": "Donostia",
+    "relevancia": 65
+  },
+  {
+    "id": "ilunbe_donostia",
+    "nombre": "Ilunbe",
+    "direccion": "Miramon Pasealekua, 2, 20014 Donostia, Gipuzkoa",
+    "lat": 43.2976723,
+    "long": -1.9710508,
+    "municipio": "Donostia",
+    "relevancia": 73
+  },
+  {
+    "id": "realearena_donostia",
+    "nombre": "Reale Arena",
+    "direccion": "Anoeta Pasalekua, 1, 20014 Donostia, Gipuzkoa",
+    "lat": 43.3014057,
+    "long": -1.9757346,
+    "municipio": "Donostia",
+    "relevancia": 76
+  },
+  {
+    "id": "victoriaeugenia_donostia",
+    "nombre": "Teatro Victoria Eugenia",
+    "direccion": "Argentinar Errepublika, 2, 20004 Donostia-San Sebastian, Gipuzkoa",
+    "lat": 43.32272,
+    "long": -1.9828532,
+    "municipio": "Donostia",
+    "relevancia": 74
+  },
+  {
+    "id": "kursaal_donostia",
+    "nombre": "Centro Kursaal Elkargunea",
+    "direccion": "Zurriola Hiribidea, 1, 20002 Donostia, Gipuzkoa",
+    "lat": 43.3243135,
+    "long": -1.9805136,
     "municipio": "Donostia",
     "relevancia": 75
+  },
+  {
+    "id": "sanmames_bilbao",
+    "nombre": "San Mamés",
+    "direccion": "Rafael Moreno Pitxitxi s/n, 48013 Bilbo, Bizkaia",
+    "lat": 43.2641745,
+    "long": -2.9515303,
+    "municipio": "Bilbao",
+    "relevancia": 80
+  },
+  {
+    "id": "honkytonk_madrid",
+    "nombre": "Sala Honky Tonk Bar",
+    "direccion": "Calle de Covarrubias, 24, 28010 Madrid",
+    "lat": 40.4302288,
+    "long": -3.6998403,
+    "municipio": "Madrid",
+    "relevancia": 76
+  },
+  {
+    "id": "wizinkcenter_madrid",
+    "nombre": "WiZink Center",
+    "direccion": "Av. Felipe II, s/n, 28009 Madrid",
+    "lat": 40.4238827,
+    "long": -3.6739399,
+    "municipio": "Madrid",
+    "relevancia": 84
+  },
+  {
+    "id": "lariviera_madrid",
+    "nombre": "Sala La Riviera",
+    "direccion": "P.º Bajo de la Virgen del Puerto, S/N, 28005 Madrid",
+    "lat": 40.413004,
+    "long": -3.7243401,
+    "municipio": "Madrid",
+    "relevancia": 75
+  },
+  {
+    "id": "marvelous_madrid",
+    "nombre": "Marvelous Bar",
+    "direccion": "C. de Hernani, 73, 28020 Madrid",
+    "lat": 40.4482619,
+    "long": -3.6964917,
+    "municipio": "Madrid",
+    "relevancia": 62
+  },
+  {
+    "id": "fakclub_madrid",
+    "nombre": "Fak Club",
+    "direccion": "C. del Conde Duque, 14, 28015 Madrid",
+    "lat": 40.4264585,
+    "long": -3.7131844,
+    "municipio": "Madrid",
+    "relevancia": 64
+  },
+  {
+    "id": "bec_baracaldo",
+    "nombre": "Bilbao Exhibition Centre",
+    "direccion": "Azkue Kalea, 1, 48902 Barakaldo, Bizkaia",
+    "lat": 43.2867203,
+    "long": -2.9930691,
+    "municipio": "Baracaldo",
+    "relevancia": 79
+  },
+  {
+    "id": "bilbaoarena_bilbao",
+    "nombre": "Bilbao Arena",
+    "direccion": "Askatasuna Etorb., 13, 48003 Bilbo, Bizkaia",
+    "lat": 43.2521524,
+    "long": -2.9283179,
+    "municipio": "Bilbao",
+    "relevancia": 77
+  },
+  {
+    "id": "kafeantzokia_bilbao",
+    "nombre": "Kafe Antzokia",
+    "direccion": "Done Bikendi Kalea, 2, 48001 Bilbo, Bizkaia",
+    "lat": 43.2637215,
+    "long": -2.929898,
+    "municipio": "Bilbao",
+    "relevancia": 68
+  },
+  {
+    "id": "euskalduna_bilbao",
+    "nombre": "Euskalduna",
+    "direccion": "Abandoibarra Etorb., 4, 48011 Bilbo, Bizkaia",
+    "lat": 43.267021,
+    "long": -2.9464978,
+    "municipio": "Bilbao",
+    "relevancia": 73
+  },
+  {
+    "id": "santana_bilbao",
+    "nombre": "Sala Santana 27",
+    "direccion": "Polígono Industrial Santa Ana, C. Tellería, 27, 48004 Bilbao, Biscay",
+    "lat": 43.2503173,
+    "long": -2.9021612,
+    "municipio": "Bilbao",
+    "relevancia": 75
+  },
+  {
+    "id": "",
+    "nombre": "",
+    "direccion": "",
+    "lat": 0,
+    "long": 0,
+    "municipio": "",
+    "relevancia": 0
+  },
+  {
+    "id": "",
+    "nombre": "",
+    "direccion": "",
+    "lat": 0,
+    "long": 0,
+    "municipio": "",
+    "relevancia": 0
+  },
+  {
+    "id": "",
+    "nombre": "",
+    "direccion": "",
+    "lat": 0,
+    "long": 0,
+    "municipio": "",
+    "relevancia": 0
+  },
+  {
+    "id": "",
+    "nombre": "",
+    "direccion": "",
+    "lat": 0,
+    "long": 0,
+    "municipio": "",
+    "relevancia": 0
+  },
+  {
+    "id": "",
+    "nombre": "",
+    "direccion": "",
+    "lat": 0,
+    "long": 0,
+    "municipio": "",
+    "relevancia": 0
   }
 ]

@@ -36,10 +36,16 @@ def crear_artistas():
     data = json.load(jsonController)
     print(len(data))
     #YTMUSIC READ INFO
+    artistas = []
     for info in data:
+        artistas.append(info["id"])
         artista_id = info["id"]
         artistaDict = ytmusic.get_artist(artista_id)
         url = artistaDict["thumbnails"][len(artistaDict["thumbnails"])-1]["url"]
         artist = Artista(artista_id, info["nombre"], url, artistaDict["description"], info["generos"], info["relevancia"])
         sql.insertar_artista(artist)
+    s = set(artistas)
+    # Comprobar que los artistas están bien en cuanto a cantidad
+    if(len(artistas) != len(s)):
+        print("CONFLICTO: HAY ARTISTAS REPETIDOS")
     jsonController.close()

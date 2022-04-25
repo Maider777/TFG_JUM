@@ -1,3 +1,6 @@
+var fs = require("fs"),
+  request = require("request");
+
 function crearId() {
   return Math.random().toString(36).substr(2, 22);
 }
@@ -25,9 +28,24 @@ function crearRespuesta(mensaje, data) {
   };
 }
 
+function descargarImagen(uri, filename, callback) {
+  if (!fs.existsSync(filename)) {
+    console.log("La imagen NO existe");
+    //file exists
+    request.head(uri, function (err, res, body) {
+      console.log("content-type:", res.headers["content-type"]);
+      console.log("content-length:", res.headers["content-length"]);
+
+      request(uri).pipe(fs.createWriteStream(filename)).on("close", callback);
+    });
+    return;
+  }
+}
+
 module.exports = {
   crearId,
   crearError,
+  descargarImagen,
   mostrarError,
   crearRespuesta,
 };

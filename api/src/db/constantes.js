@@ -1,7 +1,7 @@
 const CAMPOS_ARTISTAS = "id, nombre, imagen_url, descripcion, generos, relevancia",
   CAMPOS_CONCIERTOS = "id, artistaId, salaId, fecha, precio_min, precio_max",
   CAMPOS_GENEROS = "id, nombre",
-  CAMPOS_PREFERENCIAS = "id, usuario, generoId",
+  CAMPOS_PREFERENCIAS = "usuario, artistaId",
   CAMPOS_SALAS = "id, nombre, direccion, lat, long, municipio, relevancia",
   CAMPOS_TELONEROS = "artista, concierto, fecha",
   CAMPOS_USUARIOS = "usuario, contrasena, nombre, apellido, email, fnac";

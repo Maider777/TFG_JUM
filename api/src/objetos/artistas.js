@@ -1,12 +1,19 @@
 const config = require("../db/dbconfig"),
   db = require("../db/constantes"),
   sql = require("mssql");
+const { descargarImagen } = require("../helpers/global");
 
 async function obtenerArtistas() {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_ARTISTAS} FROM ${db.TABLAS.ARTISTAS}`);
-    return grupos.recordsets;
+    let artistas = await pool.request().query(`SELECT ${db.CAMPOS_ARTISTAS} FROM ${db.TABLAS.ARTISTAS}`);
+    artistas.recordsets[0].forEach((element) => {
+      descargarImagen(element.imagen_url, `public/images/${element.id}.jpg`, function () {
+        console.log("Imagen descargada/actualizada");
+      });
+    });
+
+    return artistas.recordsets;
   } catch (error) {
     return error;
   }
@@ -16,10 +23,13 @@ async function obtenerArtista(id) {
   console.log("ID: " + id);
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool
-      .request()
-      .query(`SELECT ${db.CAMPOS_ARTISTAS} FROM ${db.TABLAS.ARTISTAS} WHERE id = '${id}'`);
-    return grupos.recordsets;
+    let artista = await pool.request().query(`SELECT ${db.CAMPOS_ARTISTAS} FROM ${db.TABLAS.ARTISTAS} WHERE id = '${id}'`);
+
+    console.log(artista.recordsets[0][0].id);
+    descargarImagen(artista.recordsets[0][0].imagen_url, `public/images/${artista.recordsets[0][0].id}.jpg`, function () {
+      console.log("Imagen descargada/actualizada");
+    });
+    return artista.recordsets[0];
   } catch (error) {
     return error;
   }

@@ -153,48 +153,372 @@
     "relevancia": 75
   },
   {
-    "id": "",
-    "nombre": "",
-    "direccion": "",
-    "lat": 0,
-    "long": 0,
-    "municipio": "",
-    "relevancia": 0
+    "id": "cartuja_sevilla",
+    "nombre": "Estadio La Cartuja",
+    "direccion": "Isla de la Cartuja, 41092 Sevilla",
+    "lat": 43.3442621,
+    "long": -5.9178628,
+    "municipio": "Sevilla",
+    "relevancia": 80
   },
   {
-    "id": "",
-    "nombre": "",
-    "direccion": "",
-    "lat": 0,
-    "long": 0,
-    "municipio": "",
-    "relevancia": 0
+    "id": "olimpic_barcelona",
+    "nombre": "Estadi Olímpic Lluís Companys",
+    "direccion": "Passeig Olímpic, 15-17, 08038 Barcelona",
+    "lat": 41.3647481,
+    "long": 2.1556704,
+    "municipio": "Barcelona",
+    "relevancia": 70
   },
   {
-    "id": "",
-    "nombre": "",
-    "direccion": "",
-    "lat": 0,
-    "long": 0,
-    "municipio": "",
-    "relevancia": 0
+    "id": "artes_valencia",
+    "nombre": "Ciudad de las Artes y las Ciencias",
+    "direccion": "Av. del Professor López Piñero, 7, 46013 València, Valencia",
+    "lat": 39.4548792,
+    "long": -0.3526791,
+    "municipio": "Valencia",
+    "relevancia": 85
   },
   {
-    "id": "",
-    "nombre": "",
-    "direccion": "",
-    "lat": 0,
-    "long": 0,
-    "municipio": "",
-    "relevancia": 0
+    "id": "palau_barcelona",
+    "nombre": "Palau Sant Jordi",
+    "direccion": "Passeig Olímpic, 5-7, 08038 Barcelona",
+    "lat": 41.3633757,
+    "long": 2.1504043,
+    "municipio": "Barcelona",
+    "relevancia": 70
   },
   {
-    "id": "",
-    "nombre": "",
-    "direccion": "",
-    "lat": 0,
-    "long": 0,
-    "municipio": "",
-    "relevancia": 0
+    "id": "benito_sevilla",
+    "nombre": "Estadio Benito Villamarín",
+    "direccion": "Av de Heliópolis, s/n, 41012 Sevilla",
+    "lat": 37.3565079,
+    "long": -5.9839408,
+    "municipio": "Sevilla",
+    "relevancia": 75
+  },  
+  {
+    "id": "auditorio_vigo",
+    "nombre": "Auditorio Pazo de Congresos Mar de Vigo",
+    "direccion": "Av. da Beiramar, 59, 36202 Vigo, Pontevedra",
+    "lat": 42.2316106,
+    "long": -8.7386601,
+    "municipio": "Vigo",
+    "relevancia": 65
+  },
+  {
+    "id": "trui_palma",
+    "nombre": "Trui Teatro",
+    "direccion": "Camí de Son Rapinya, 29, 07013 Palma, Illes Balears",
+    "lat": 39.5831939,
+    "long": 2.6132622,
+    "municipio": "Illes Balears",
+    "relevancia": 85
+  },
+  {
+    "id": "coliseum_coruna",
+    "nombre": "Coliseum",
+    "direccion": "Rúa Francisco Pérez Carballo, 2, 15008 A Coruña",
+    "lat": 43.338913,
+    "long": -8.4119558,
+    "municipio": "A Coruña",
+    "relevancia": 76
+  },
+  {
+    "id": "pineda_barcelona",
+    "nombre": "Pineda de Mar",
+    "direccion": "Espai Marítim ARTS d'Estiu, Passeig Marítim, 08397 Pineda de Mar, Barcelona",
+    "lat": 41.6244988,
+    "long": 2.7016593,
+    "municipio": "Barcelona",
+    "relevancia": 75
+  },
+  {
+    "id": "sala_zaragoza",
+    "nombre": "Sala Multiusos",
+    "direccion": "C/ Eduardo Ibarra, 3, 50009 Zaragoza",
+    "lat": 41.6377869,
+    "long": -0.902566,
+    "municipio": "Zaragoza",
+    "relevancia": 72
+  },
+  {
+    "id": "estadi_valencia",
+    "nombre": "Estadi Ciutat de Valencia",
+    "direccion": "Carrer de Sant Vicent de Paül, 44, 46019 València, Valencia",
+    "lat": 39.494695,
+    "long": -0.3659975,
+    "municipio": "Valencia",
+    "relevancia": 60
+  },
+  {
+    "id": "starlite_malaga",
+    "nombre": "Starlite Catalana Occidente",
+    "direccion": "C. Albinoni, s/n, 29602 Marbella, Málaga",
+    "lat": 36.5326873,
+    "long": -4.9233556,
+    "municipio": "Málaga",
+    "relevancia": 68
+  },
+  {
+    "id": "chiclana_cadiz",
+    "nombre": "Concert Music Festival",
+    "direccion": "Pob. Sancti Petri, 11139 Chiclana de la Frontera, Cádiz",
+    "lat": 36.3959219,
+    "long": -6.2096061,
+    "municipio": "Cádiz",
+    "relevancia": 70
+  },
+  {
+    "id": "recinto_almeria",
+    "nombre": "Recinto Ferial de Almería",
+    "direccion": "04007 Vega de Aca, Almería",
+    "lat": 36.8366017,
+    "long": -2.435194,
+    "municipio": "Almería",
+    "relevancia": 80
+  },
+  {
+    "id": "plaza_granada",
+    "nombre": "Plaza de Toros",
+    "direccion": "Av. Dr. Oloriz, 25, 18012 Granada",
+    "lat": 37.1888571,
+    "long": -3.6092561,
+    "municipio": "Granada",
+    "relevancia": 80
+  },
+  {
+    "id": "marenostrum_malaga",
+    "nombre": "Marenostrum",
+    "direccion": "29640 Fuengirola, Málaga",
+    "lat": 36.5247795,
+    "long": -4.6308871,
+    "municipio": "Málaga",
+    "relevancia": 85
+  },
+  {
+    "id": "marina_valencia",
+    "nombre": "La Marina de Valencia",
+    "direccion": "Carrer del Moll de la Duana, s/n, 46024 València, Valencia",
+    "lat": 39.4614653,
+    "long": -0.33208,
+    "municipio": "Valencia",
+    "relevancia": 80
+  },
+  {
+    "id": "trui_balears",
+    "nombre": "Trui Son fusteret",
+    "direccion": "Camí Vell de Bunyola, s/n, 07009 Palma, Illes Balears",
+    "lat": 39.4614653,
+    "long": -0.33208,
+    "municipio": "Illes Balears",
+    "relevancia":75 
+  },
+  {
+    "id": "arena_navarra",
+    "nombre": "Navarra Arena",
+    "direccion": "Pl. Aizagerria, nº 1, 31006 Pamplona, Navarra",
+    "lat": 42.7960052,
+    "long": -1.6374167,
+    "municipio": "Navarra",
+    "relevancia": 85
+  },
+  {
+    "id": "palacio_granada",
+    "nombre": "Palacio Municipal de Deportes",
+    "direccion": "P.º del Emperador Carlos V, 1, 18001 Granada",
+    "lat": 36.9202909,
+    "long": -4.5853654,
+    "municipio": "Granada",
+    "relevancia": 65
+  },
+  {
+    "id": "recinto_albacete",
+    "nombre": "Recinto Ferial",
+    "direccion": "Av. Castilla la Mancha, 2, 02630 La Roda, Albacete",
+    "lat": 39.2014289,
+    "long": -2.1590081,
+    "municipio": "Albacete",
+    "relevancia": 60
+  },
+  {
+    "id": "quini_asturias",
+    "nombre": "Estadio El Molinón Enrique Castro Quini",
+    "direccion": "Calle, Luis Adaro Ruíz Falcó, 33203 Gijón, Asturias",
+    "lat": 43.5369632,
+    "long": -5.6390425,
+    "municipio": "Asturias",
+    "relevancia": 60
+  },
+  {
+    "id": "puerto_cadiz",
+    "nombre": "Puerto de Cádiz",
+    "direccion": "Pl. de España, 17, 11006 Cádiz",
+    "lat": 36.4464934,
+    "long": -6.3554125,
+    "municipio": "Cádiz",
+    "relevancia": 
+  },
+  {
+    "id": "auditorio_sevilla",
+    "nombre": "Auditorio Rocío Jurado",
+    "direccion": "Camino de los Descubrimientos, 6, 41092 Sevilla",
+    "lat": 37.4001149,
+    "long": -6.0058415,
+    "municipio": "Sevilla",
+    "relevancia": 60
+  },
+  {
+    "id": "hipodromo_sansebastian",
+    "nombre": "Hipódromo de San Sebastián",
+    "direccion": "P.º Arrapide, 11, 20160 Zubieta, Gipuzkoa",
+    "lat": 43.265421,
+    "long": -2.0267067,
+    "municipio": "Lasarte Oria",
+    "relevancia": 60
+  },
+  {
+    "id": "rockollection_pamplona",
+    "nombre": "Rockollection",
+    "direccion": "C. de Olite, 12, 31002 Pamplona, Navarra",
+    "lat": 42.7708557,
+    "long": -1.7200612,
+    "municipio": "Pamplona",
+    "relevancia": 65
+  },
+  {
+    "id": "cuartel_murcia",
+    "nombre": "Cuartel de Artillería - Pabellón 2",
+    "direccion": "Módulo 2, C. Cartagena, 74, 30002 Murcia",
+    "lat": 37.9779996,
+    "long": -1.137441,
+    "municipio": "Murcia",
+    "relevancia": 65
+  },
+  {
+    "id": "mendizabala_gasteiz",
+    "nombre": "Recinto Mendizabala",
+    "direccion": "Mendizabala Kalea, 10, 01007 Gasteiz, Araba",
+    "lat": 42.8363732,
+    "long": -2.6820892,
+    "municipio": "Gasteiz",
+    "relevancia": 65
+  },
+  {
+    "id": "jimy_gasteiz",
+    "nombre": "Sala Jimmy Jazz Gasteiz",
+    "direccion": "Coronacion de la Virgen Blanca Kalea, 4, 01012 Gasteiz, Araba",
+    "lat": 42.8522445,
+    "long": -2.6787773,
+    "municipio": "Gasteiz",
+    "relevancia": 70
+  },
+  {
+    "id": "sala_bilbao",
+    "nombre": "Sala Sonora",
+    "direccion": "Ribera de Axpe Etorbidea, 27, 48950 Erandio, Bizkaia",
+    "lat": 43.3140014,
+    "long": -2.9894271,
+    "municipio": "Erandio",
+    "relevancia": 70
+  },
+  {
+    "id": "gramola_algeciras",
+    "nombre": "Gramola",
+    "direccion": "Pje. Fuente Nueva, 11203 Algeciras, Cádiz",
+    "lat": 36.1331982,
+    "long": -5.4554524,
+    "municipio": "Algeciras",
+    "relevancia":70 
+  },
+  {
+    "id": "leonjoven_leon",
+    "nombre": "Leónjoven",
+    "direccion": "Av del Padre Isla, 48, 24002 León",
+    "lat": 42.6029423,
+    "long": -5.5775055,
+    "municipio": "León",
+    "relevancia": 75
+  },
+  {
+    "id": "oxido_guadalajara",
+    "nombre": "Sala Óxido",
+    "direccion": "C. Batalla de Villaviciosa, 11, 19004 Guadalajara",
+    "lat": 40.6306953,
+    "long": -3.1873797,
+    "municipio": "Guadalajara",
+    "relevancia":65 
+  },
+  {
+    "id": "zahora_ciudadreal",
+    "nombre": "Zahora Magestic",
+    "direccion": "C/ Hernán Pérez del Pulgar, 6, 13002 Ciudad Real, Cdad. Real",
+    "lat": 38.9832599,
+    "long": -3.9292768,
+    "municipio": "Ciudad Real",
+    "relevancia": 70
+  },
+  {
+    "id": "vaca_ponferrada",
+    "nombre": "La Vaca Club",
+    "direccion": "Calle Bilbao, 18, 24404 Ponferrada, León",
+    "lat": 42.5543311,
+    "long": -6.61875,
+    "municipio": "Ponferrada",
+    "relevancia":75 
+  },
+  {
+    "id": "capitol_santiago",
+    "nombre": "Sala Capitol",
+    "direccion": "Rúa de Concepción Arenal, 5, 15702 Santiago de Compostela, A Coruña",
+    "lat": 42.8818027,
+    "long": -8.5541685,
+    "municipio": "Santiago de Compostela",
+    "relevancia": 55
+  },
+  {
+    "id": "laboratorio_valladolid",
+    "nombre": "Laboratorio de las Artes de Valladolid",
+    "direccion": "P.º de Zorrilla, 101, 47007 Valladolid",
+    "lat": 41.6311586,
+    "long": -4.7418423,
+    "municipio": "Valladolid",
+    "relevancia": 70
+  },
+  {
+    "id": "espacio_oviedo",
+    "nombre": "Espacio Estilo Oviedo",
+    "direccion": "C. de Joaquina Bobela, 8, 33011 Oviedo, Asturias",
+    "lat": 43.3684452,
+    "long": -5.8471426,
+    "municipio": "Oviedo",
+    "relevancia": 60
+  },
+  {
+    "id": "malatesta_santiago",
+    "nombre": "Sala Malatesta",
+    "direccion": "Rúa de San Lourenzo, 51, 53, 15705 Santiago de Compostela, A Coruña",
+    "lat": 42.8786039,
+    "long": -8.5566704,
+    "municipio": "Santiago de Compostela",
+    "relevancia": 60
+  },
+  {
+    "id": "zero_tarragona",
+    "nombre": "Sala Zero",
+    "direccion": "Carrer de Sant Magí, 12, 43004 Tarragona",
+    "lat": 41.1125752,
+    "long": 1.247315,
+    "municipio": "Tarragona",
+    "relevancia": 60
+  },
+  {
+    "id": "manolita_lleida",
+    "nombre": "MANOLITA NIGHT LIFE",
+    "direccion": "Carrer de Guillem de Beziers, s/n, 25001 Lleida",
+    "lat": 41.6059635,
+    "long": 0.6200969,
+    "municipio": "Lleida",
+    "relevancia": 65
   }
 ]

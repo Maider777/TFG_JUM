@@ -41,7 +41,7 @@ app.get("/", function (req, res) {
 var dir = "./public/images";
 
 if (!fs.existsSync(dir)) {
-  console.log("NO EXISTE, CREADO");
+  console.log("El directorio img no existe, creado");
   fs.mkdirSync(dir, { recursive: true });
 }
 

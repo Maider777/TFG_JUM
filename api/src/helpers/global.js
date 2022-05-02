@@ -28,15 +28,15 @@ function crearRespuesta(mensaje, data) {
   };
 }
 
-function descargarImagen(uri, filename, callback) {
+function descargarImagen(uri, filename) {
   if (!fs.existsSync(filename)) {
-    console.log("La imagen NO existe");
     //file exists
-    request.head(uri, function (err, res, body) {
-      request(uri).pipe(fs.createWriteStream(filename)).on("close", callback);
+    request.head(uri, function () {
+      request(uri).pipe(fs.createWriteStream(filename));
     });
-    return;
+    return false;
   }
+  return true;
 }
 
 module.exports = {

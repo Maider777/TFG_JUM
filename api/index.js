@@ -15,10 +15,6 @@ const express = require("express"),
   sql = require("mssql"),
   config = require("./src/db/dbconfig"),
   cors = require("cors"),
-  // http = require("http"),
-  // fs = require("fs"),
-  // path = require("path"),
-  // url = require("url"),
   fs = require("fs"),
   artistas = require("./src/objetos/artistas"),
   conciertos = require("./src/objetos/conciertos"),
@@ -35,8 +31,8 @@ app.use(cors());
 app.use(express.static("public"));
 app.use("/images", express.static("images"));
 
-app.listen(3000, () => {
-  console.log("Servidor iniciado en el puerto 3000");
+app.listen((puerto = 6745), () => {
+  console.log(`Servidor iniciado en el puerto ${puerto}`);
 });
 app.get("/", function (req, res) {
   res.json({ message: "recurso de entrada" });

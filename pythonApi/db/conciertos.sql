@@ -5,6 +5,6 @@ create table conciertos (id varchar(40) NOT NULL PRIMARY KEY, artistaId varchar(
 
 use TFG_JUM;
 go
-insert into conciertos 
+insert into conciertos
 (id, artistaId, salaId, fecha, precio_min, precio_max) 
 values('idconcierto2', 'UCBDXpukZYpWw54QCbEGdsZw', 'dabadaba_donostia', '2022-6-15 22:00:44', 41, 101);

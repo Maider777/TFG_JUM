@@ -28,8 +28,6 @@ class Sala(object):
         self.municipio = municipio
         self.relevancia = relevancia
 
-
-
 def crear_salas():
     # Opening JSON file
     jsonController = open(rutaSalas)

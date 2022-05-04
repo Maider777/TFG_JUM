@@ -201,12 +201,12 @@ app.get("/generos/:id", rutasProtegidas, (req, res) => {
 // PREFERENCIAS
 app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
   preferencias
-    .obtenerPreferencias(req.params.usuario)
+    .obtenerPreferencias(req.params.id)
     .then((data) => {
-      if (data instanceof Error) {
+      if (!data || data[0].length == 0) {
         res.status(404).json(crearError(data));
       }
-      res.json(data[0]);
+      res.json(data);
     })
     .catch((error) => {
       res.json(error);
@@ -214,6 +214,7 @@ app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
 });
 
 app.post("/preferencias", rutasProtegidas, (req, res) => {
+  console.log("INTENTO DE POST");
   preferencias
     .crearPreferencia(req.body.usuario, req.body.artistaId)
     .then((data) => {

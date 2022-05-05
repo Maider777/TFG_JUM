@@ -1,14 +1,14 @@
+from datetime import datetime
 import json
 import pyodbc
 import db.sql as sql
 import random
 import numpy
+import rand
 
 from objects.artista import Artista
 from objects.sala import Sala
 
-artistas = sql.obtener_artistas()
-salas = sql.obtener_salas()
 
 class Concierto(object):
     id = ""
@@ -29,7 +29,7 @@ class Concierto(object):
         self.precio_max = precio_max
 
     def __init__(self, concierto):
-        self.id = id
+        self.id = concierto.id
         self.artistaId = concierto.artistaId
         self.salaId = concierto.salaId
         self.fecha = concierto.fecha
@@ -39,43 +39,37 @@ class Concierto(object):
     def __str__(self):
         return self.id + " " + self.artistaId
 
-def filtrar_relevancia(array, relevancia):
-    cantidad_relevancia = 3
-    filtrados = []
-    
-    print("RELEVANCIA DEL ARTISTA: ", relevancia)
-    for item in array:
-        if relevancia - cantidad_relevancia < item.relevancia and relevancia + cantidad_relevancia > item.relevancia:
-            filtrados.append(item)
-
-    return filtrados
-
-def crear_precios(rel_artista, rel_sala):
-    media = (rel_artista + rel_sala) / 2
-    print("Media de relevancia" , media);
-    precios_min = [media * 0.3, media * 0.4, media * 0.5, media * 0.6,media * 0.7, media * 0.85, media]
-    probabilidades_min = [0.05, 0.09, 0.12, 0.25, 0.22, 0.15, 0.12]
-    precio_min = numpy.random.choice(precios_min, p=probabilidades_min)
-    print("PRECIO MÍNIMO: ", precio_min)
-
-def crear_concierto_aleatorio():
-        artista = Artista(random.choice(artistas))
-        print("************************************************************")
-        print(artista)
-
-        rel_artista = artista.relevancia
-        salas_filtradas = filtrar_relevancia(salas, rel_artista)
-        print(len(salas_filtradas), " salas filtradas")
-        sala = Sala(random.choice(salas_filtradas))
-        crear_precios(artista.relevancia, sala.relevancia)
-        # sql.insertar_concierto()
-
 def crear_conciertos(cantidad):
-    print(len(artistas), " artistas")
-    print(len(salas), " salas")
+    
+    # artistas = sql.obtener_artistas()
+    # salas = sql.obtener_salas()
 
-    for i in range(0,cantidad):
-        crear_concierto_aleatorio()
+    # print(len(artistas), " artistas")
+    # print(len(salas), " salas")
+
+
+    # i = 0
+    # artistasRandom = random.choices(artistas, k=cantidad)
+    # print("Artistas: ", len(artistasRandom))
+
+    # for artista in artistasRandom:
+    #     salas_filtradas = rand.filtrar_salas_relevancia(salas, artista.relevancia)
+    #     if(len(salas_filtradas)==0):
+    #         print("No hay salas para el artista: ", artista.nombre)
+    #         continue
+
+    #     sala = Sala(random.choice(salas_filtradas))
+    #     precio_min, precio_max = rand.crear_precios(artista.relevancia, sala.relevancia)
+    #     print(artista.nombre, " tocará en ",  sala.nombre, ". Precios entre ", precio_min, " y ", precio_max)
+    #     i+=1
+
+    # print("Se han creado ", i, " artistas de ", cantidad, " intentos")
+    print("NUEVA FECHA", rand.crear_fecha(780, "a"))
+    # date_format = '%Y-%m-%d %H:%M:%S'
+    # fechas = sql.obtener_fecha_conciertos_artista("UCBDXpukZYpWw54QCbEGdsZw")
+    # print(fechas[0].fecha)
+    # date = datetime.strptime(datetime(fechas[0]), date_format)
+    # print(date)
 
     
             

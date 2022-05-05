@@ -71,3 +71,13 @@ def obtener_salas():
         return 0
     connection.commit()
     return salas
+
+def obtener_fecha_conciertos_artista(artista_id):
+    try:
+        cursor.execute("SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha from conciertos where conciertos.artistaId = ?", 
+        artista_id)   
+        conciertos = cursor.fetchall()
+    except:
+        return 0
+    connection.commit()
+    return conciertos

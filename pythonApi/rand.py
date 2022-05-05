@@ -60,7 +60,7 @@ def crear_precios(rel_artista, rel_sala):
 
 # Crear las fechas según la relevancia del artista
 # - relevancia = antes el concierto y en peores días de la semana y horas
-def crear_fecha(rel_media, artista_id):
+def crear_fecha(rel_media):
     dias_semana = [0,1,2,3,4,5,6]
     meses = 0
     probalididades_dia_semana = 0
@@ -86,24 +86,21 @@ def crear_fecha(rel_media, artista_id):
 
     fecha_inicial = date.today() + relativedelta(months=+meses[0])
     fecha_final = date.today() + relativedelta(months=+meses[1])
-    print("FECHAS POSIBLES: ", fecha_inicial, fecha_final)
+    # print("FECHAS POSIBLES: ", fecha_inicial, fecha_final)
 
     dia_semana = int(numpy.random.choice(dias_semana, p=probalididades_dia_semana))
 
     dias_entre_fechas = (fecha_final - fecha_inicial).days
     dias_aleatorios = random.randrange(dias_entre_fechas)
     fecha_aleatoria = fecha_inicial + relativedelta(days=dias_aleatorios)
-    print(fecha_aleatoria)
-    print("Fecha aleatoria weekday, dia semana ",fecha_aleatoria.weekday(), dia_semana)
+
     if(dia_semana == fecha_aleatoria.weekday()):        
         return fecha_aleatoria
 
     if(dia_semana>fecha_aleatoria.weekday()):
-        print("dia_semana mayor que fecha aleatoria")
         return fecha_aleatoria + relativedelta(days = dia_semana-fecha_aleatoria.weekday())
 
     if(dia_semana<fecha_aleatoria.weekday()):
-        print("fecha aleatoria mayor que fecha dia_semana")
         return fecha_aleatoria - relativedelta(days = fecha_aleatoria.weekday()-dia_semana)
 
-    
+    return None

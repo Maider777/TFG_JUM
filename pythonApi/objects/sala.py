@@ -29,7 +29,7 @@ class Sala(object):
         self.relevancia = relevancia
 
     def __init__(self, sala):
-        self.id = id
+        self.id = sala.id
         self.nombre = sala.nombre
         self.direccion = sala.direccion
         self.lat = sala.lat

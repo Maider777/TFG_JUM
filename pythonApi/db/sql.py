@@ -35,9 +35,8 @@ def insertar_concierto(concierto):
         cursor.execute("INSERT INTO conciertos(id, artistaId, salaId, fecha, precio_min, precio_max)"
             "VALUES (?, ?, ?, ?, ?, ?)"
             ,concierto.id, concierto.artistaId, concierto.salaId,  concierto.fecha, concierto.precio_min, concierto.precio_max)
-        print("INSERT CONCIERTO")
     except:
-        cursor.execute("UPDATE salas SET artistaId = ?, salaId = ?, fecha = ?, precio_min = ?, precio_max = ? WHERE id = ?", 
+        cursor.execute("UPDATE conciertos SET artistaId = ?, salaId = ?, fecha = ?, precio_min = ?, precio_max = ? WHERE id = ?", 
         concierto.artistaId, concierto.salaId,  concierto.fecha, concierto.precio_min, concierto.precio_max, concierto.id)
         print("UPDATE CONCIERTO")
     connection.commit()
@@ -47,7 +46,6 @@ def insertar_telonero(telonero):
         cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha)"
             "VALUES (?, ?, ?)"
             ,telonero.artistaId, telonero.conciertoId,  telonero.fecha)
-        print("INSERT TELONERO")
     except:
         cursor.execute("UPDATE teloneros SET artistaId, fecha = ? WHERE conciertoId = ?", 
         telonero.artistaId, telonero.fecha, telonero.conciertoId)
@@ -72,7 +70,14 @@ def obtener_salas():
     connection.commit()
     return salas
 
-def obtener_fecha_conciertos_artista(artista_id, fecha):
+def artista_disponible_fecha(artista_id, fecha):
+    """
+    Comprueba que el artista está disponible en la fecha
+
+    param artista_id
+    param fecha
+    returns => booleano disponibilidad
+    """
     try:
         cursor.execute("SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha, conciertos.id from conciertos where conciertos.artistaId = ? and DATEDIFF(day, fecha,?) =0", 
         artista_id, fecha)   
@@ -80,9 +85,16 @@ def obtener_fecha_conciertos_artista(artista_id, fecha):
     except:
         return 0
     connection.commit()
-    return conciertos
+    return len(conciertos)==0
 
-def obtener_fecha_conciertos_sala(sala_id, fecha):
+def sala_disponible_fecha(sala_id, fecha):
+    """
+    Comprueba que la sala está disponible en la fecha
+
+    param sala_id
+    param fecha
+    returns => booleano disponibilidad
+    """
     try:
         cursor.execute("SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha, conciertos.id from conciertos where conciertos.salaId = ? and DATEDIFF(day, fecha,?) =0", 
         sala_id, fecha)   
@@ -90,4 +102,4 @@ def obtener_fecha_conciertos_sala(sala_id, fecha):
     except:
         return 0
     connection.commit()
-    return conciertos
+    return len(conciertos)==0

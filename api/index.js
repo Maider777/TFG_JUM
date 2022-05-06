@@ -84,31 +84,29 @@ rutasProtegidas.use((req, res, next) => {
  * contrasena: xxxx
  */
 app.post("/login", (req, res) => {
+  console.log(req.body.usuario, req.body.contrasena);
   sql.connect(config, function (err) {
     if (err) console.log(err);
     // create Request object
     var request = new sql.Request();
-    request.query(
-      `SELECT * FROM usuarios where usuario = '${req.body.usuario}' AND contrasena = '${req.body.contrasena}'`,
-      function (err, response) {
-        if (err) {
-          res.send(err);
-          console.log(err);
-        }
-        if (response.recordset.length > 0) {
-          const payload = { check: true };
-          const token = jwt.sign(payload, app.get("llave"), {
-            expiresIn: 86660,
-          });
-          res.json({
-            mensaje: "Autenticación correcta",
-            token: token,
-          });
-        } else {
-          res.json({ mensaje: "Usuario o contraseña incorrectos" });
-        }
+    request.query(`SELECT * FROM usuarios where usuario = '${req.body.usuario}' AND contrasena = '${req.body.contrasena}'`, function (err, response) {
+      if (err) {
+        res.send(err);
+        console.log(err);
       }
-    );
+      if (response.recordset.length > 0) {
+        const payload = { check: true };
+        const token = jwt.sign(payload, app.get("llave"), {
+          expiresIn: 86660,
+        });
+        res.json({
+          mensaje: "Autenticación correcta",
+          token: token,
+        });
+      } else {
+        res.json({ mensaje: "Usuario o contraseña incorrectos" });
+      }
+    });
   });
 });
 
@@ -213,7 +211,7 @@ app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
     });
 });
 
-app.post("/preferencias", rutasProtegidas, (req, res) => {
+app.post("/preferencias/", rutasProtegidas, (req, res) => {
   console.log("INTENTO DE POST");
   preferencias
     .crearPreferencia(req.body.usuario, req.body.artistaId)
@@ -228,7 +226,8 @@ app.post("/preferencias", rutasProtegidas, (req, res) => {
     });
 });
 
-app.delete("/preferencias", rutasProtegidas, (req, res) => {
+app.delete("/preferencias/", rutasProtegidas, (req, res) => {
+  console.log("HERE");
   preferencias
     .eliminarPreferencia(req.body.usuario, req.body.generoId)
     .then((data) => {
@@ -241,22 +240,22 @@ app.delete("/preferencias", rutasProtegidas, (req, res) => {
     });
 });
 
-app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
-  preferencias
-    .eliminarPreferencias(req.params.id)
-    .then((data) => {
-      if (data.rowsAffected == 0) {
-        res.status(401).json(crearError(new Error("El usuario no tiene preferencias")));
-      } else {
-        let respuesta = crearRespuesta("Preferencias eliminadas correctamente", data);
-        console.log(respuesta);
-        res.status(204).json(respuesta);
-      }
-    })
-    .catch((error) => {
-      res.status(401).json(crearError(error));
-    });
-});
+// app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
+//   preferencias
+//     .eliminarPreferencias(req.params.id)
+//     .then((data) => {
+//       if (data.rowsAffected == 0) {
+//         res.status(401).json(crearError(new Error("El usuario no tiene preferencias")));
+//       } else {
+//         let respuesta = crearRespuesta("Preferencias eliminadas correctamente", data);
+//         console.log(respuesta);
+//         res.status(204).json(respuesta);
+//       }
+//     })
+//     .catch((error) => {
+//       res.status(401).json(crearError(error));
+//     });
+// });
 
 // SALAS
 app.get("/salas/:id", rutasProtegidas, (req, res) => {

@@ -7,6 +7,10 @@ create table teloneros (artistaId varchar(40)NOT NULL FOREIGN KEY REFERENCES art
 
 use TFG_JUM;
 go
+select * from usuarios
+
+use TFG_JUM;
+go
 select * from conciertos where artistaId = 'UCoymDyyaLqjMbAckW2G07qw'
 
 use TFG_JUM;

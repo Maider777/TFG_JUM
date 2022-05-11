@@ -4,4 +4,4 @@ import objects.conciertos as conciertos
 
 # artista.crear_artistas()
 # sala.crear_salas()
-conciertos.crear_conciertos(1000)
+conciertos.crear_conciertos(300)

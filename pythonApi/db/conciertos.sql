@@ -7,14 +7,6 @@ create table teloneros (artistaId varchar(40)NOT NULL FOREIGN KEY REFERENCES art
 
 use TFG_JUM;
 go
-select * from usuarios
-
-use TFG_JUM;
-go
-select * from conciertos where artistaId = 'UCoymDyyaLqjMbAckW2G07qw'
-
-use TFG_JUM;
-go
 SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha, conciertos.id from conciertos where conciertos.artistaId = 'UCoymDyyaLqjMbAckW2G07qw' and DATEDIFF(day, fecha,'2022-12-25 18:00:00') =0
 
 use TFG_JUM;

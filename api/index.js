@@ -17,8 +17,9 @@ const express = require("express"),
   cors = require("cors"),
   fs = require("fs"),
   artistas = require("./src/objetos/artistas"),
+  compras = require("./src/objetos/compras"),
   conciertos = require("./src/objetos/conciertos"),
-  generos = require("./src/objetos/generos"),
+  tokens = require("./src/objetos/tokens"),
   preferencias = require("./src/objetos/preferencias"),
   salas = require("./src/objetos/salas"),
   usuarios = require("./src/objetos/usuarios"),
@@ -60,8 +61,7 @@ rutasProtegidas.use((req, res, next) => {
   if (token) {
     jwt.verify(token, app.get("llave"), (err, decoded) => {
       if (err) {
-        res.status(401);
-        return res.json({ mensaje: "Token inválida" });
+        return res.json({ mensaje: "Token inválida" }).status(401);
       } else {
         req.decoded = decoded;
         next();
@@ -90,39 +90,132 @@ app.post("/login", (req, res) => {
     if (err) console.log(err);
     // create Request object
     var request = new sql.Request();
-    request.query(
-      `SELECT * FROM usuarios where usuario = '${req.body.usuario}' AND contrasena = '${req.body.contrasena}'`,
-      function (err, response) {
-        if (err) {
-          res.send(err);
-          console.log(err);
-        }
-        if (response.recordset.length > 0) {
-          const payload = { check: true };
-          const token = jwt.sign(payload, app.get("llave"), {
-            expiresIn: 86660,
-          });
-          res.json({
-            mensaje: "Autenticación correcta",
-            token: token,
-          });
-        } else {
-          res.json({ mensaje: "Usuario o contraseña incorrectos" });
-        }
+    request.query(`SELECT * FROM usuarios where usuario = '${req.body.usuario}' AND contrasena = '${req.body.contrasena}'`, function (err, response) {
+      if (err) {
+        res.send(err);
+        console.log(err);
       }
-    );
+      if (response.recordset.length > 0) {
+        const payload = { check: true };
+        const token = jwt.sign(payload, app.get("llave"), {
+          expiresIn: 86660,
+        });
+        res.json({
+          mensaje: "Autenticación correcta",
+          token: token,
+        });
+      } else {
+        request.query(`SELECT * FROM usuarios where usuario = '${req.body.usuario}'`, function (err) {
+          if (err) {
+            res.send(err);
+            console.log(err);
+          }
+          if (response.recordset.length > 0) {
+            res.json({ mensaje: "Usuario o contraseña incorrectos" });
+          }
+          res.json({ mensaje: "El usuario no existe" });
+        });
+      }
+    });
   });
 });
 
 // Usuario
 app.post("/registro", (req, res) => {
-  console.log(req.body.usuario, req.body.contrasena, req.body.fnac, req.body.nombre, req.body.apellido, req.body.email);
-  console.log("INTENTO DE POST");
   usuarios
-    .crearUsuario(req.body, req.body)
+    .crearUsuario(req.body)
     .then((data) => {
       if (data instanceof Error) {
-        res.status(401).json(crearError(error));
+        res.status(401).json(crearError(data));
+        return;
+      }
+      res.json(data).status(201);
+    })
+    .catch((error) => {
+      res.status(401).json(crearError(error));
+    });
+});
+
+// TOKENS
+app.get("/tokens/:usuario", (req, res) => {
+  tokens
+    .obtenerTokenUsuario(req.params.usuario)
+    .then((data) => {
+      console.log(data);
+      if (!data || data[0].length == 0) {
+        res.status(404);
+        return;
+      }
+      res.json(data[0]);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.post("/tokens/", (req, res) => {
+  console.log("INTENTO DE POST DE TOKEN");
+  tokens
+    .insertarTokenUsuario(req.body.usuario, req.body.token)
+    .then((data) => {
+      if (data instanceof Error) {
+        res.status(401).json(crearError(data));
+        return;
+      }
+      res.json(data).status(201);
+    })
+    .catch((error) => {
+      res.status(401).json(crearError(error));
+    });
+});
+
+app.delete("/tokens/:usuario", (req, res) => {
+  tokens
+    .eliminarTokenUsuario(req.params.usuario)
+    .then((data) => {
+      if (data.rowsAffected == 0) {
+        res.json(crearError(new Error("El usuario no tiene token guardado"))).status(404);
+      } else {
+        let respuesta = crearRespuesta("Token eliminado correctamente", data);
+        res.json(respuesta).status(204);
+      }
+    })
+    .catch((error) => {
+      res.json(crearError(error)).status(401);
+    });
+});
+
+// COMPRAS
+app.get("/compras/:usuario", rutasProtegidas, (req, res) => {
+  compras
+    .obtenerCompras(req.params.usuario)
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.status(404).json(crearError(data));
+        return;
+      }
+      res.json(data);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+
+app.post("/compras/", rutasProtegidas, (req, res) => {
+  let compra = {
+    compraId: req.body.compraId,
+    usuario: req.body.usuario,
+    conciertoId: req.body.conciertoId,
+    fecha: req.body.fecha,
+    cantidad: req.body.cantidad,
+    precio: req.body.precio,
+  };
+  console.log("INTENTO DE POST DE COMPRAS");
+  compras
+    .insertarCompra(compra)
+    .then((data) => {
+      if (data instanceof Error) {
+        res.status(401).json(crearError(data));
       }
       res.json(data).status(201);
     })
@@ -132,7 +225,7 @@ app.post("/registro", (req, res) => {
 });
 
 // ARTISTAS
-app.get("/artistas/", rutasProtegidas, (req, res) => {
+app.get("/artistas/", (req, res) => {
   artistas
     .obtenerArtistas()
     .then((data) => {
@@ -146,12 +239,13 @@ app.get("/artistas/", rutasProtegidas, (req, res) => {
     });
 });
 
-app.get("/artistas/:id", rutasProtegidas, (req, res) => {
+app.get("/artistas/:id", (req, res) => {
   artistas
     .obtenerArtista(req.params.id)
     .then((data) => {
       if (!data || data[0].length == 0) {
         res.status(404);
+        return;
       }
       res.json(data[0]);
     })
@@ -160,54 +254,32 @@ app.get("/artistas/:id", rutasProtegidas, (req, res) => {
     });
 });
 
-app.post("/artistas", rutasProtegidas, (req, res) => {
-  artistas.crearArtista(req.body).then((data) => {
-    res.json(data);
-  });
-});
-
 // CONCIERTOS
-app.get("/conciertos/", rutasProtegidas, (req, res) => {
-  conciertos.obtenerConciertos.then((data) => {
+app.get("/conciertos/", (req, res) => {
+  conciertos.obtenerConciertos().then((data) => {
     if (!data || data[0].length == 0) {
       res.status(404);
+      return;
     }
     res.json(data[0]);
   });
 });
 
-app.get("/conciertos/:id", rutasProtegidas, (req, res) => {
+app.get("/conciertos/:id", (req, res) => {
   conciertos.obtenerConcierto(req.params.id).then((data) => {
     if (!data || data[0].length == 0) {
       res.status(404);
+      return;
     }
     res.json(data[0]);
   });
 });
 
-app.get("/conciertosArtista/:id", rutasProtegidas, (req, res) => {
+app.get("/conciertosArtista/:id", (req, res) => {
   conciertos.obtenerConciertosArtista(req.params.id).then((data) => {
     if (!data || data[0].length == 0) {
       res.status(404);
-    }
-    res.json(data[0]);
-  });
-});
-
-// GÉNEROS
-app.get("/generos/", rutasProtegidas, (req, res) => {
-  generos.obtenerGeneros().then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
-    }
-    res.json(data[0]);
-  });
-});
-
-app.get("/generos/:id", rutasProtegidas, (req, res) => {
-  generos.obtenerGenero(req.params.id).then((data) => {
-    if (!data || data[0].length == 0) {
-      res.status(404);
+      return;
     }
     res.json(data[0]);
   });
@@ -220,6 +292,7 @@ app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
     .then((data) => {
       if (!data || data[0].length == 0) {
         res.status(404).json(crearError(data));
+        return;
       }
       res.json(data);
     })
@@ -229,17 +302,18 @@ app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
 });
 
 app.post("/preferencias/", rutasProtegidas, (req, res) => {
-  console.log("INTENTO DE POST");
+  console.log("INTENTO DE POST DE PREFERENCIAS");
   preferencias
     .crearPreferencia(req.body.usuario, req.body.artistaId)
     .then((data) => {
       if (data instanceof Error) {
-        res.status(401).json(crearError(error));
+        res.json(crearError(data)).status(401);
+        return;
       }
       res.json(data).status(201);
     })
     .catch((error) => {
-      res.status(401).json(crearError(error));
+      res.json(crearError(error)).status(404);
     });
 });
 
@@ -249,6 +323,7 @@ app.delete("/preferencias/", rutasProtegidas, (req, res) => {
     .then((data) => {
       if (data.rowsAffected == 0) {
         res.json(crearError(new Error("La preferencia no existe"))).status(404);
+        return;
       } else res.json(data).status(201);
     })
     .catch((error) => {
@@ -261,26 +336,75 @@ app.delete("/preferencias/:id", rutasProtegidas, (req, res) => {
     .eliminarPreferencias(req.params.id)
     .then((data) => {
       if (data.rowsAffected == 0) {
-        res.status(401).json(crearError(new Error("El usuario no tiene preferencias")));
+        res.json(crearError(new Error("El usuario no tiene preferencias"))).status(404);
+        return;
       } else {
         let respuesta = crearRespuesta("Preferencias eliminadas correctamente", data);
         res.json(respuesta).status(204);
       }
     })
     .catch((error) => {
-      res.status(401).json(crearError(error));
+      res.json(crearError(error)).status(401);
     });
 });
 
 // SALAS
-app.get("/salas/:id", rutasProtegidas, (req, res) => {
+app.get("/salas/:id", (req, res) => {
   salas
     .obtenerSala(req.params.id)
     .then((data) => {
       if (data instanceof Error) {
         res.status(404).json(crearError(data));
+        return;
       }
       res.json(data[0]);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+
+// TELONEROS
+app.get("/teloneros/", (req, res) => {
+  console.log("OBTENER TELONEROS");
+  teloneros
+    .obtenerTeloneros()
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.status(404).json(crearError(data));
+        return;
+      }
+      res.json(data).status(200);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+
+app.get("/teloneros/:artistaId", (req, res) => {
+  teloneros
+    .obtenerConciertosTelonero(req.params.artistaId)
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.status(404).json(crearError(data));
+        return;
+      }
+      res.json(data);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+
+app.get("/telonerosConcierto/:conciertoId", (req, res) => {
+  teloneros
+    .obtenerTelonerosConcierto(req.params.conciertoId)
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.status(404).json(crearError(data));
+        return;
+      }
+      res.json(data);
     })
     .catch((error) => {
       res.json(error);

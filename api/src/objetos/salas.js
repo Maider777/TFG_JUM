@@ -5,8 +5,8 @@ const config = require("../db/dbconfig"),
 async function obtenerSalas() {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_SALAS} FROM ${db.TABLAS.SALAS}`);
-    return grupos.recordsets;
+    let salas = await pool.request().query(`SELECT ${db.CAMPOS_SALAS} FROM ${db.TABLAS.SALAS}`);
+    return salas.recordsets;
   } catch (error) {
     return error;
   }
@@ -16,8 +16,8 @@ async function obtenerSala(id) {
   console.log("ID: " + id);
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_SALAS} FROM ${db.TABLAS.SALAS} WHERE id = '${id}'`);
-    return grupos.recordsets[0];
+    let sala = await pool.request().query(`SELECT ${db.CAMPOS_SALAS} FROM ${db.TABLAS.SALAS} WHERE id = '${id}'`);
+    return sala.recordsets[0];
   } catch (error) {
     return error;
   }

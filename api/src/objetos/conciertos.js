@@ -5,8 +5,8 @@ const config = require("../db/dbconfig"),
 async function obtenerConciertos() {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS}`);
-    return grupos.recordsets;
+    let conciertos = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS}`);
+    return conciertos.recordsets;
   } catch (error) {
     return error;
   }
@@ -15,8 +15,8 @@ async function obtenerConciertos() {
 async function obtenerConcierto(id) {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE id = '${id}'`);
-    return grupos.recordsets;
+    let concierto = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE id = '${id}'`);
+    return concierto.recordsets;
   } catch (error) {
     return error;
   }
@@ -25,8 +25,8 @@ async function obtenerConcierto(id) {
 async function obtenerConciertosArtista(id) {
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE artistaId = '${id}' ORDER BY fecha`);
-    return grupos.recordsets;
+    let conciertos = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE artistaId = '${id}' ORDER BY fecha`);
+    return conciertos.recordsets;
   } catch (error) {
     return error;
   }

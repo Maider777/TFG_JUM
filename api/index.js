@@ -121,6 +121,21 @@ app.post("/login", (req, res) => {
 });
 
 // Usuario
+app.get("/usuarios/:usuario", rutasProtegidas, (req, res) => {
+  usuarios
+    .obtenerUsuario(req.params.usuario)
+    .then((data) => {
+      if (!data || data[0].length == 0) {
+        res.json(crearError(data)).status(404);
+        return;
+      }
+      res.json(data);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+
 app.post("/registro", (req, res) => {
   usuarios
     .crearUsuario(req.body)

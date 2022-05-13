@@ -6,8 +6,8 @@ async function obtenerTokenUsuario(usuario) {
   console.log("Obtener login usuario: " + usuario);
   try {
     let pool = await sql.connect(config);
-    let grupos = await pool.request().query(`SELECT ${db.CAMPOS_TOKENS} FROM ${db.TABLAS.TOKENS} WHERE usuario = '${usuario}'`);
-    return grupos.recordsets[0];
+    let token = await pool.request().query(`SELECT ${db.CAMPOS_TOKENS} FROM ${db.TABLAS.TOKENS} WHERE usuario = '${usuario}'`);
+    return token.recordsets[0];
   } catch (error) {
     return error;
   }

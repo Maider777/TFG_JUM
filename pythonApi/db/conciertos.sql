@@ -15,10 +15,10 @@ SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha, conciertos.id
 
 USE TFG_JUM
 GO
-select * from conciertos where artistaId = 'UCVY2na9iDAShVRRKWYMC10g'
+select * from salas
 
 use TFG_JUM;
 go
-insert into conciertos
-(id, artistaId, salaId, fecha, precio_min, precio_max) 
-values('idconcierto2', 'UCBDXpukZYpWw54QCbEGdsZw', 'doka_donostia', '2022-6-25 22:00:44', 35, 50);
+SELECT SERVERPROPERTY('Collation')
+ALTER TABLE salas
+ALTER COLUMN nombre VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8

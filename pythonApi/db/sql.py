@@ -5,7 +5,7 @@ cursor = connection.cursor()
 def insertar_artista(artista):
     try:
         cursor.execute("INSERT INTO artistas(id, nombre, imagen_url, descripcion, generos, relevancia)"
-            "VALUES (?, ?, ?, ?, ?, ?)"
+            "VALUES (N?, ?, ?, ?, ?, ?)"
             # "ON DUPLICATE KEY UPDATE"
             # "imagen_url=VALUES(imagen_url)"
             ,artista.id, artista.nombre, artista.imagen_url,  artista.descripcion, artista.generos, artista.relevancia)
@@ -19,7 +19,7 @@ def insertar_artista(artista):
 def insertar_sala(sala):
     try:
         cursor.execute("INSERT INTO salas(id, nombre, direccion, lat, long, municipio, relevancia)"
-            "VALUES (?, ?, ?, ?, ?, ?, ?)"
+            "VALUES (N?, ?, ?, ?, ?, ?, ?)"
             # "ON DUPLICATE KEY UPDATE"
             # "imagen_url=VALUES(imagen_url)"
             ,sala.id, sala.nombre, sala.direccion,  sala.lat, sala.long, sala.municipio, sala.relevancia)
@@ -33,7 +33,7 @@ def insertar_sala(sala):
 def insertar_concierto(concierto):
     try:
         cursor.execute("INSERT INTO conciertos(id, artistaId, salaId, fecha, precio_min, precio_max)"
-            "VALUES (?, ?, ?, ?, ?, ?)"
+            "VALUES (N?, ?, ?, ?, ?, ?)"
             ,concierto.id, concierto.artistaId, concierto.salaId,  concierto.fecha, concierto.precio_min, concierto.precio_max)
     except:
         cursor.execute("UPDATE conciertos SET artistaId = ?, salaId = ?, fecha = ?, precio_min = ?, precio_max = ? WHERE id = ?", 
@@ -44,7 +44,7 @@ def insertar_concierto(concierto):
 def insertar_telonero(telonero):
     try:
         cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha)"
-            "VALUES (?, ?, ?)"
+            "VALUES (N?, ?, ?)"
             ,telonero.artistaId, telonero.conciertoId,  telonero.fecha)
     except:
         cursor.execute("UPDATE teloneros SET artistaId, fecha = ? WHERE conciertoId = ?", 

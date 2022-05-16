@@ -1,7 +1,10 @@
 import json
 import pyodbc
 import db.sql as sql
+# import sys
+# sys.path.append("C:\Users\2daw3\Downloads\ytmusicapi_master")
 from ytmusicapi import YTMusic
+
 import os
 
 # Python no soporta por defecto rutas relativas, con la librería OS se puede conseguir el efecto
@@ -27,20 +30,20 @@ class Artista(object):
         self.generos = generos
         self.relevancia = relevancia
 
-    def __init__(self, artista):
-        self.id = artista.id
-        self.nombre = artista.nombre
-        self.imagen_url = artista.imagen_url
-        self.descripcion = artista.descripcion
-        self.generos = artista.generos
-        self.relevancia = artista.relevancia
+    # def __init__(self, artista):
+    #     self.id = artista.id
+    #     self.nombre = artista.nombre
+    #     self.imagen_url = artista.imagen_url
+    #     self.descripcion = artista.descripcion
+    #     self.generos = artista.generos
+    #     self.relevancia = artista.relevancia
 
     def __str__(self) -> str:
         return self.nombre
 
 def crear_artistas():
     # Opening JSON file
-    jsonController = open(rutaArtistas)
+    jsonController = open(rutaArtistas, encoding='utf-8')
     
     # returns JSON object as
     # a dictionary
@@ -53,7 +56,9 @@ def crear_artistas():
         artista_id = info["id"]
         artistaDict = ytmusic.get_artist(artista_id)
         url = artistaDict["thumbnails"][len(artistaDict["thumbnails"])-1]["url"]
-        artist = Artista(artista_id, info["nombre"], url, artistaDict["description"], info["generos"], info["relevancia"])
+        descripcion = artistaDict["description"].replace("?", "")  if artistaDict["description"] is not None else ""
+        print("?" in descripcion)
+        artist = Artista(artista_id, info["nombre"], url, descripcion, info["generos"], info["relevancia"])
         sql.insertar_artista(artist)
     s = set(artistas)
     # Comprobar que los artistas están bien en cuanto a cantidad

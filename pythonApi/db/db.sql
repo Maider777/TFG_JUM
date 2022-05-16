@@ -25,4 +25,4 @@ create table compras (compraId varchar(40) NOT NULL, usuario varchar(20)NOT NULL
 
 use TFG_JUM
 GO
-select * from teloneros where artistaId = 'UCu6ct4LWh-sMXxQpreWDY_g'
+select * from artistas

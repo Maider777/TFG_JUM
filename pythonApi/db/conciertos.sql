@@ -15,10 +15,14 @@ SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha, conciertos.id
 
 USE TFG_JUM
 GO
-select * from salas
+select * from conciertos
 
 use TFG_JUM;
 go
 SELECT SERVERPROPERTY('Collation')
 ALTER TABLE salas
 ALTER COLUMN nombre VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8
+
+use TFG_JUM
+GO
+insert into compras VALUES('asdadasdas', 'Deagle50', '06138726-D61D-4B0D-9D0F-8BD607428BC1', '10/10/2010', '10', '23')

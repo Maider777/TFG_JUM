@@ -13,7 +13,6 @@ async function obtenerSalas() {
 }
 
 async function obtenerSala(id) {
-  console.log("ID: " + id);
   try {
     let pool = await sql.connect(config);
     let sala = await pool.request().query(`SELECT ${db.CAMPOS_SALAS} FROM ${db.TABLAS.SALAS} WHERE id = '${id}'`);

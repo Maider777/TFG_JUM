@@ -14,7 +14,6 @@ async function obtenerTokenUsuario(usuario) {
 }
 
 async function insertarTokenUsuario(usuario, token) {
-  console.log("ID: " + usuario);
   try {
     let pool = await sql.connect(config);
     await pool

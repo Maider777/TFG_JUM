@@ -15,10 +15,8 @@ async function obtenerConciertos() {
 async function obtenerConcierto(id) {
   try {
     let pool = await sql.connect(config);
-    let concierto = await pool
-      .request()
-      .query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE id = '${id}' ORDER BY fecha`);
-    return concierto.recordsets;
+    let concierto = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE id = '${id}' ORDER BY fecha`);
+    return concierto.recordsets[0];
   } catch (error) {
     return error;
   }
@@ -27,9 +25,7 @@ async function obtenerConcierto(id) {
 async function obtenerConciertosArtista(id) {
   try {
     let pool = await sql.connect(config);
-    let conciertos = await pool
-      .request()
-      .query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE artistaId = '${id}' ORDER BY fecha`);
+    let conciertos = await pool.request().query(`SELECT ${db.CAMPOS_CONCIERTOS} FROM ${db.TABLAS.CONCIERTOS} WHERE artistaId = '${id}' ORDER BY fecha DESC`);
     return conciertos.recordsets;
   } catch (error) {
     return error;

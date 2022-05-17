@@ -5,6 +5,8 @@ const config = require("../db/dbconfig"),
 
 async function obtenerPreferencias(usuario) {
   try {
+    console.log("OBTENER PREFERENCIAS");
+    console.log(usuario);
     let pool = await sql.connect(config);
     let resp = await pool.request().query(`SELECT ${db.CAMPOS_PREFERENCIAS} FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}'`);
     if (resp.recordsets[0].length == 0) return new Error("El usuario no existe o no tiene preferencias");
@@ -14,28 +16,7 @@ async function obtenerPreferencias(usuario) {
   }
 }
 
-async function preferenciaExiste(usuario, genero) {
-  try {
-    let pool = await sql.connect(config);
-    let resp = await pool
-      .request()
-      .query(`SELECT ${db.CAMPOS_PREFERENCIAS} FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND generoId = '${genero}'`)
-      .catch((error) => {
-        throw error;
-      });
-    return resp.recordsets[0].length > 0;
-  } catch (error) {
-    return error;
-  }
-}
-
 async function crearPreferencia(usuario, artistaId) {
-  console.log("USUARIO: " + usuario + " ARTISTA: " + artistaId);
-  // let existe = await preferenciaExiste(usuario, artistaId);
-  // if (existe instanceof Error) {
-  //   return existe;
-  // }
-  // if (!existe)
   try {
     let pool = await sql.connect(config);
     await pool.request().query(`INSERT INTO ${db.TABLAS.PREFERENCIAS} VALUES('${usuario}', '${artistaId}')`);
@@ -50,9 +31,7 @@ async function crearPreferencia(usuario, artistaId) {
 async function eliminarPreferencia(usuario, artistaId) {
   try {
     let pool = await sql.connect(config);
-    let resp = await pool
-      .request()
-      .query(`DELETE FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND artistaId = '${artistaId}'`);
+    let resp = await pool.request().query(`DELETE FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND artistaId = '${artistaId}'`);
     console.log(`DELETE FROM ${db.TABLAS.PREFERENCIAS} WHERE usuario = '${usuario}' AND artistaId = '${artistaId}'`);
     return resp;
   } catch (error) {

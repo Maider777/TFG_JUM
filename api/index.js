@@ -302,6 +302,7 @@ app.get("/conciertosArtista/:id", (req, res) => {
 
 // PREFERENCIAS
 app.get("/preferencias/:id", rutasProtegidas, (req, res) => {
+  console.log("PRE PREFERENCIAS" + req.params.id);
   preferencias
     .obtenerPreferencias(req.params.id)
     .then((data) => {

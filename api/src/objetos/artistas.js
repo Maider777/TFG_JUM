@@ -18,7 +18,6 @@ async function obtenerArtistas() {
 }
 
 async function obtenerArtista(id) {
-  console.log("ID: " + id);
   try {
     let pool = await sql.connect(config);
     let artista = await pool.request().query(`SELECT ${db.CAMPOS_ARTISTAS} FROM ${db.TABLAS.ARTISTAS} WHERE id = '${id}'`);

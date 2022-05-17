@@ -22,7 +22,3 @@ create table conciertos (id varchar(40) NOT NULL PRIMARY KEY, artistaId varchar(
 create table teloneros (artistaId varchar(40)NOT NULL FOREIGN KEY REFERENCES artistas(id), conciertoId varchar(40) NOT NULL FOREIGN KEY REFERENCES conciertos(id), fecha INT)
 
 create table compras (compraId varchar(40) NOT NULL, usuario varchar(20)NOT NULL FOREIGN KEY REFERENCES usuarios(usuario), conciertoId varchar(40) NOT NULL FOREIGN KEY REFERENCES conciertos(id), fecha datetime NOT NULL, cantidad INT NOT NULL, precio float NOT NULL, PRIMARY KEY (compraId, conciertoId))
-
-use TFG_JUM
-GO
-select * from artistas

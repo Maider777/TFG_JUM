@@ -78,7 +78,7 @@ def crear_conciertos(cantidad):
         concierto = Concierto(id, artista.id, sala.id, date, precio_min, precio_max)
         # Insertar concierto en sql
         sql.insertar_concierto(concierto)
-        print(Concierto(id, artista.nombre, sala.nombre, date, precio_min, precio_max))
+        print(Concierto(id, artista.nombre, sala.nombre, date, precio_min, precio_max), " ", id)
         i += 1
 
         # Crea teloneros y los inserta en BBDD

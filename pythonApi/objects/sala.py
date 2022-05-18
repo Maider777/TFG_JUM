@@ -28,14 +28,14 @@ class Sala(object):
         self.municipio = municipio
         self.relevancia = relevancia
 
-    # def __init__(self, sala):
-    #     self.id = sala.id
-    #     self.nombre = sala.nombre
-    #     self.direccion = sala.direccion
-    #     self.lat = sala.lat
-    #     self.long = sala.long
-    #     self.municipio = sala.municipio
-    #     self.relevancia = sala.relevancia
+    def __init__(self, sala):
+        self.id = sala.id
+        self.nombre = sala.nombre
+        self.direccion = sala.direccion
+        self.lat = sala.lat
+        self.long = sala.long
+        self.municipio = sala.municipio
+        self.relevancia = sala.relevancia
 
 def crear_salas():
     # Opening JSON file

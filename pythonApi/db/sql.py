@@ -33,23 +33,28 @@ def insertar_sala(sala):
 def insertar_concierto(concierto):
     try:
         cursor.execute("INSERT INTO conciertos(id, artistaId, salaId, fecha, precio_min, precio_max)"
-            "VALUES (N?, ?, ?, ?, ?, ?)"
+            "VALUES (?, ?, ?, ?, ?, ?)"
             ,concierto.id, concierto.artistaId, concierto.salaId,  concierto.fecha, concierto.precio_min, concierto.precio_max)
-    except:
+    except Exception as e:
+        print(e)
         cursor.execute("UPDATE conciertos SET artistaId = ?, salaId = ?, fecha = ?, precio_min = ?, precio_max = ? WHERE id = ?", 
         concierto.artistaId, concierto.salaId,  concierto.fecha, concierto.precio_min, concierto.precio_max, concierto.id)
         print("UPDATE CONCIERTO")
     connection.commit()
 
 def insertar_telonero(telonero):
+    print("{}, {}, {}".format(telonero.artistaId, telonero.conciertoId, telonero.fecha))
     try:
-        cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha)"
-            "VALUES (N?, ?, ?)"
+        cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha) VALUES (?, ?, ?)"
             ,telonero.artistaId, telonero.conciertoId,  telonero.fecha)
-    except:
-        cursor.execute("UPDATE teloneros SET artistaId, fecha = ? WHERE conciertoId = ?", 
-        telonero.artistaId, telonero.fecha, telonero.conciertoId)
-        print("UPDATE TELONERO")
+    except Exception as e:
+        # print(e)
+        try:
+            cursor.execute("UPDATE teloneros SET artistaId = ?, fecha = ? WHERE conciertoId = ?", 
+            telonero.artistaId, telonero.fecha, telonero.conciertoId)
+            print("UPDATE TELONERO")
+        except Exception as e: print(e)
+
     connection.commit()
 
 def obtener_artistas():

@@ -30,13 +30,13 @@ class Artista(object):
         self.generos = generos
         self.relevancia = relevancia
 
-    # def __init__(self, artista):
-    #     self.id = artista.id
-    #     self.nombre = artista.nombre
-    #     self.imagen_url = artista.imagen_url
-    #     self.descripcion = artista.descripcion
-    #     self.generos = artista.generos
-    #     self.relevancia = artista.relevancia
+    def __init__(self, artista):
+        self.id = artista.id
+        self.nombre = artista.nombre
+        self.imagen_url = artista.imagen_url
+        self.descripcion = artista.descripcion
+        self.generos = artista.generos
+        self.relevancia = artista.relevancia
 
     def __str__(self) -> str:
         return self.nombre

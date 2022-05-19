@@ -108,3 +108,30 @@ def sala_disponible_fecha(sala_id, fecha):
         return 0
     connection.commit()
     return len(conciertos)==0
+
+def crear_concierto_acdc_camela():
+    try:
+        cursor.execute("INSERT INTO conciertos(id, artistaId, salaId, fecha, precio_min, precio_max)"
+            "VALUES (?, ?, ?, ?, ?, ?)"
+            ,'CONSIERTOOO', 'UCVm4YdI3hobkwsHTTOMVJKg', 'dabadaba_donostia',  '2022-05-23 19:00:00', '0', '0')
+        cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha) VALUES (?, ?, ?)"
+            ,'UC1fab2nJ6Gk6G1drkzagxYg', 'CONSIERTOOO',  '60')
+        cursor.execute("INSERT INTO conciertos(id, artistaId, salaId, fecha, precio_min, precio_max)"
+            "VALUES (?, ?, ?, ?, ?, ?)"
+            ,'CONSIERTOOO2', 'UC1fab2nJ6Gk6G1drkzagxYg', 'dabadaba_donostia',  '2022-05-23 19:00:00', '0', '0')
+        cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha) VALUES (?, ?, ?)"
+            ,'UCVm4YdI3hobkwsHTTOMVJKg', 'CONSIERTOOO2',  '60')
+    except Exception as e:
+        print(e)        
+        print("Fallo al meter a asedese y kmla")
+    connection.commit()
+
+def nuevoConsert():
+    try:
+        
+        cursor.execute("INSERT INTO teloneros(artistaId, conciertoId, fecha) VALUES (?, ?, ?)"
+            ,'UCFldbdNiIgj0OTRZXOD0kvQ', '5AC4ACB0-1477-4BE3-84EB-42AD2BA62FC9',  '60')
+    except Exception as e:
+        print(e)        
+        print("Fallo al meter a asedese y kmla")
+    connection.commit()

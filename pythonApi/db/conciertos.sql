@@ -15,14 +15,30 @@ SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, conciertos.fecha)) as fecha, conciertos.id
 
 USE TFG_JUM
 GO
-select * from conciertos
+select * from artistas where nombre ='Camela'
 
-use TFG_JUM;
-go
-SELECT SERVERPROPERTY('Collation')
-ALTER TABLE salas
-ALTER COLUMN nombre VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8
+
+
+USE TFG_JUM
+GO
+select * from teloneros where artistaId = 'UCCpbVGnLNOHE5wZlWVJ5ZBw'
+
+USE TFG_JUM
+GO
+select * from teloneros where conciertoId = '703B9D9B-E596-41D3-84B9-00E3C90C397D'
 
 use TFG_JUM
 GO
 insert into compras VALUES('asdadasdas', 'Deagle50', '06138726-D61D-4B0D-9D0F-8BD607428BC1', '10/10/2010', '10', '23')
+
+use TFG_JUM
+go
+TRUNCATE table compras
+truncate table teloneros
+DELETE FROM conciertos
+DBCC CHECKIDENT ('TFG_JUM.dbo.conciertos', RESEED, 0)
+truncate table conciertos
+
+USE TFG_JUM
+GO
+select * from conciertos where artistaId = 'UCBDXpukZYpWw54QCbEGdsZw'

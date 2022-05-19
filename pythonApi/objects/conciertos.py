@@ -39,7 +39,6 @@ def crear_conciertos(cantidad):
 
     param cantidad => Cantidad de conciertos a crear
     """
-    
     # Obtiene todos los artistas para hacer random con todos
     artistas = sql.obtener_artistas()
     salas = sql.obtener_salas()
@@ -92,5 +91,7 @@ def crear_conciertos(cantidad):
             sql.insertar_telonero(telonero_2)
             print(telonero_2)
 
-    # print("Se han creado ", i, " artistas de ", cantidad, " intentos")
+    print("Se han creado ", i, " conciertos de ", cantidad, " intentos")
 
+    sql.crear_concierto_acdc_camela()
+    sql.nuevoConsert()

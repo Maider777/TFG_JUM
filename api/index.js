@@ -110,10 +110,10 @@ app.post("/login", (req, res) => {
             res.send(err);
             console.log(err);
           }
-          if (response.recordset.length > 0) {
-            res.json(crearError(new Error("Usuario o contraseña incorrectos")));
+          if (response.recordset && response.recordset.length > 0) {
+            res.status(400).json(crearError(new Error("Usuario o contraseña incorrectos")));
           }
-          res.json(crearError(new Error("El usuario no existe")));
+          res.status(400).json(crearError(new Error("El usuario no existe")));
         });
       }
     });

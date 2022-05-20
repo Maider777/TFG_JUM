@@ -25,7 +25,7 @@ select * from teloneros where artistaId = 'UCCpbVGnLNOHE5wZlWVJ5ZBw'
 
 USE TFG_JUM
 GO
-select * from teloneros where conciertoId = '703B9D9B-E596-41D3-84B9-00E3C90C397D'
+select * from compras
 
 use TFG_JUM
 GO
@@ -41,4 +41,6 @@ truncate table conciertos
 
 USE TFG_JUM
 GO
+
+select * from compras
 select * from conciertos where artistaId = 'UCBDXpukZYpWw54QCbEGdsZw'

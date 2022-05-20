@@ -130,9 +130,34 @@ app.get("/usuarios/:usuario", rutasProtegidas, (req, res) => {
         return;
       }
       res.json(data);
+      return;
     })
     .catch((error) => {
       res.json(error);
+    });
+});
+
+app.post("/usuarios", rutasProtegidas, (req, res) => {
+  let usuario = {
+    usuario: req.body.usuario,
+    nombre: req.body.nombre,
+    apellido: req.body.apellido,
+    email: req.body.email,
+    contrasena: req.body.contrasena,
+    fnac: req.body.fnac,
+  };
+  usuarios
+    .actualizarUsuario(usuario)
+    .then((data) => {
+      if (data instanceof Error) {
+        res.status(401).json(crearError(data));
+        return;
+      }
+      res.json(data).status(201);
+      return;
+    })
+    .catch((error) => {
+      res.status(401).json(crearError(error));
     });
 });
 
@@ -225,14 +250,15 @@ app.post("/compras/", rutasProtegidas, (req, res) => {
     cantidad: req.body.cantidad,
     precio: req.body.precio,
   };
-  console.log("INTENTO DE POST DE COMPRAS");
+  console.log("INTENTO DE POST DE COMPRAS" + req.body.fecha);
   compras
     .insertarCompra(compra)
     .then((data) => {
       if (data instanceof Error) {
         res.status(401).json(crearError(data));
+        return;
       }
-      res.json(data).status(201);
+      res.status(201).json(data);
     })
     .catch((error) => {
       res.status(401).json(crearError(error));

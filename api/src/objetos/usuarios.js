@@ -16,24 +16,29 @@ async function crearUsuario(usuario) {
   try {
     let pool = await sql.connect(config);
     console.log("CREAR USUARIO" + usuario.nombre);
-    await pool
-      .request()
-      .query(
-        `INSERT INTO ${db.TABLAS.USUARIOS}
+    await pool.request().query(
+      `INSERT INTO ${db.TABLAS.USUARIOS}
           VALUES(
             '${usuario.usuario}', '${usuario.contrasena}', '${usuario.nombre}', '${usuario.apellido}', 
             '${usuario.email}', '${usuario.fnac}'
           )`
-      )
-      .catch(async function () {
-        console.log("UPDATE");
-        await pool
-          .request()
-          .query(
-            `UPDATE ${db.TABLAS.USUARIOS} SET nombre = '${usuario.nombre}', apellido = '${usuario.apellido}', fnac = '${usuario.fnac}', email = '${usuario.email}' WHERE usuario = '${usuario.usuario}'`
-          );
-      });
+    );
     return "OK";
+  } catch (error) {
+    return error;
+  }
+}
+
+async function actualizarUsuario(usuario) {
+  try {
+    let pool = await sql.connect(config);
+    console.log("UPDATE");
+    await pool
+      .request()
+      .query(
+        `UPDATE ${db.TABLAS.USUARIOS} SET nombre = '${usuario.nombre}', apellido = '${usuario.apellido}', fnac = '${usuario.fnac}', email = '${usuario.email}' WHERE usuario = '${usuario.usuario}'`
+      );
+    return `Usuario ${usuario.usuario} actualizado`;
   } catch (error) {
     return error;
   }
@@ -42,4 +47,5 @@ async function crearUsuario(usuario) {
 module.exports = {
   obtenerUsuario,
   crearUsuario,
+  actualizarUsuario,
 };
